@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Jutta Pasal</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon">👟</span>
+          <span class="logo-text">Jutta<span class="accent">Pasal</span></span>
+        </a>
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link"
+                ><i class="fas fa-shoe-prints"></i> Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link active"
+                ><i class="fas fa-info-circle"></i> About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+          </ul>
+          <div class="nav-close" id="nav-close">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <div class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-moon" id="theme-icon"></i>
+          </div>
+          <a href="wishlist.html" class="nav-action-btn"
+            ><i class="fas fa-heart"></i
+            ><span class="badge" id="wishlist-count">0</span></a
+          >
+          <a href="cart.html" class="nav-action-btn"
+            ><i class="fas fa-shopping-cart"></i
+            ><span class="badge" id="cart-count">0</span></a
+          >
+          <div class="user-dropdown" id="user-dropdown">
+            <button class="nav-action-btn" id="user-btn">
+              <i class="fas fa-user"></i>
+            </button>
+            <div class="user-menu" id="user-menu">
+              <div class="user-menu-header" id="user-menu-header">
+                <p>Welcome, Guest</p>
+              </div>
+              <ul class="user-menu-list" id="user-menu-list">
+                <li>
+                  <a href="login.html"
+                    ><i class="fas fa-sign-in-alt"></i> Login</a
+                  >
+                </li>
+                <li>
+                  <a href="register.html"
+                    ><i class="fas fa-user-plus"></i> Register</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-toggle" id="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- About Hero -->
+      <section class="about-hero">
+        <div class="container">
+          <h1>About <span class="accent">Jutta Pasal</span></h1>
+          <p>
+            Nepal's premier destination for authentic, stylish, and comfortable
+            footwear since 2020.
+          </p>
+        </div>
+      </section>
+
+      <!-- Our Story -->
+      <section class="about-story section">
+        <div class="container">
+          <div class="about-story-grid">
+            <div class="about-story-image">
+              <img src="img/jordan.png" alt="Our Story" />
+            </div>
+            <div class="about-story-content">
+              <h2>Our Story</h2>
+              <p>
+                Jutta Pasal was born from a simple idea: everyone deserves
+                access to quality footwear at fair prices. Founded in 2020 in
+                the heart of Kathmandu, we started as a small shop with a big
+                dream.
+              </p>
+              <p>
+                Today, we've grown into one of Nepal's most trusted online shoe
+                retailers, serving thousands of happy customers across all seven
+                provinces. Our commitment to authenticity, quality, and customer
+                satisfaction remains at the core of everything we do.
+              </p>
+              <p>
+                We work directly with authorized distributors and brands to
+                ensure every pair of shoes we sell is 100% genuine. Whether
+                you're looking for the latest sneakers, classic formals, or
+                comfortable casuals, Jutta Pasal has got you covered.
+              </p>
+
+              <div class="about-stats">
+                <div class="about-stat">
+                  <span class="about-stat-number">50K+</span>
+                  <span class="about-stat-label">Happy Customers</span>
+                </div>
+                <div class="about-stat">
+                  <span class="about-stat-number">500+</span>
+                  <span class="about-stat-label">Products</span>
+                </div>
+                <div class="about-stat">
+                  <span class="about-stat-number">20+</span>
+                  <span class="about-stat-label">Brands</span>
+                </div>
+                <div class="about-stat">
+                  <span class="about-stat-number">7</span>
+                  <span class="about-stat-label">Provinces</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Values -->
+      <section class="about-values section">
+        <div class="container">
+          <h2>Our Values</h2>
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3>Authenticity</h3>
+              <p>
+                We guarantee 100% authentic products from authorized sources. No
+                fakes, no compromises.
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h3>Customer First</h3>
+              <p>
+                Your satisfaction is our priority. We go above and beyond to
+                ensure you're happy with every purchase.
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-gem"></i>
+              </div>
+              <h3>Quality</h3>
+              <p>
+                We carefully curate our collection to bring you only the best in
+                comfort, style, and durability.
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-tags"></i>
+              </div>
+              <h3>Fair Pricing</h3>
+              <p>
+                Quality footwear shouldn't break the bank. We offer competitive
+                prices without compromising quality.
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-truck"></i>
+              </div>
+              <h3>Fast Delivery</h3>
+              <p>
+                We deliver across Nepal with speed and care. Your new shoes are
+                just a few days away.
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-sync"></i>
+              </div>
+              <h3>Easy Returns</h3>
+              <p>
+                Not the right fit? No worries. Our hassle-free return policy has
+                got you covered.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section class="about-team section">
+        <div class="container">
+          <h2>Meet Our Team</h2>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-avatar">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #ff6b35, #e55a2b);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 3rem;
+                    font-weight: bold;
+                  "
+                >
+                  KDL
+                </div>
+              </div>
+              <h3>Kiran Kandel</h3>
+              <p>Founder & CEO</p>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #3498db, #2980b9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 3rem;
+                    font-weight: bold;
+                  "
+                ></div>
+              </div>
+              <h3>Kalyan Kandel</h3>
+              <p>Operations Manager</p>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #27ae60, #2ecc71);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 3rem;
+                    font-weight: bold;
+                  "
+                ></div>
+              </div>
+              <h3>Abiskar Kandel & Sandesh Kandel</h3>
+              <p>Head of Sales</p>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 3rem;
+                    font-weight: bold;
+                  "
+                ></div>
+              </div>
+              <h3>Anuj Karki & Aayodh shrestha</h3>
+              <p>Customer Support Lead</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="newsletter section">
+        <div class="container">
+          <div
+            class="newsletter-content"
+            style="text-align: center; flex-direction: column"
+          >
+            <h2>Ready to Find Your Perfect Pair?</h2>
+            <p>
+              Browse our collection of premium footwear and step into style
+              today.
+            </p>
+            <a
+              href="products.html"
+              class="btn btn-primary"
+              style="margin-top: 1rem"
+            >
+              <i class="fas fa-shopping-bag"></i> Shop Now
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-col">
+              <a href="index.html" class="footer-logo">
+                <span class="logo-icon">👟</span>
+                <span class="logo-text"
+                  >Jutta<span class="accent">Pasal</span></span
+                >
+              </a>
+              <p class="footer-description">
+                Your one-stop destination for premium footwear in Nepal.
+              </p>
+              <div class="footer-social"></div>
+            </div>
+            <div class="footer-col">
+              <h3>Quick Links</h3>
+              <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Contact Info</h3>
+              <ul class="footer-contact">
+                <li>
+                  <i class="fas fa-map-marker-alt"></i
+                  ><span>Kathmandu, Nepal</span>
+                </li>
+                <li>
+                  <i class="fas fa-phone"></i><span>+977 9878541256</span>
+                </li>
+                <li>
+                  <i class="fas fa-envelope"></i
+                  ><span>info@juttapasal.com</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2024 Jutta Pasal. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

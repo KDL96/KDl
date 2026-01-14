@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products - Jutta Pasal | Premium Footwear in Nepal</title>
+    <meta
+      name="description"
+      content="Browse our extensive collection of premium footwear including sneakers, running shoes, and casual wear."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon">👟</span>
+          <span class="logo-text">Jutta<span class="accent">Pasal</span></span>
+        </a>
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link active"
+                ><i class="fas fa-shoe-prints"></i> Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link"
+                ><i class="fas fa-info-circle"></i> About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+          </ul>
+          <div class="nav-close" id="nav-close">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <div class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-moon" id="theme-icon"></i>
+          </div>
+          <a href="wishlist.html" class="nav-action-btn" title="Wishlist"
+            ><i class="fas fa-heart"></i
+            ><span class="badge" id="wishlist-count">0</span></a
+          >
+          <a href="cart.html" class="nav-action-btn" title="Shopping Cart"
+            ><i class="fas fa-shopping-cart"></i
+            ><span class="badge" id="cart-count">0</span></a
+          >
+          <div class="user-dropdown" id="user-dropdown">
+            <button class="nav-action-btn" id="user-btn" title="User Menu">
+              <i class="fas fa-user"></i>
+            </button>
+            <div class="user-menu" id="user-menu">
+              <div class="user-menu-header" id="user-menu-header">
+                <p>Welcome, Guest</p>
+              </div>
+              <ul class="user-menu-list" id="user-menu-list">
+                <li>
+                  <a href="login.html"
+                    ><i class="fas fa-sign-in-alt"></i> Login</a
+                  >
+                </li>
+                <li>
+                  <a href="register.html"
+                    ><i class="fas fa-user-plus"></i> Register</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-toggle" id="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- Page Header -->
+      <section class="page-header">
+        <div class="container">
+          <h1>Our Products</h1>
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Products</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section class="products-section">
+        <div class="container">
+          <div class="products-layout">
+            <!-- Sidebar Filters -->
+            <aside class="products-sidebar" id="filters-sidebar">
+              <div class="sidebar-header">
+                <h3>Filters</h3>
+                <button class="clear-filters" id="clear-filters">
+                  Clear All
+                </button>
+              </div>
+
+              <!-- Search in Products -->
+              <div class="filter-widget">
+                <input
+                  type="search"
+                  id="product-search"
+                  placeholder="Search products..."
+                  class="filter-search"
+                />
+              </div>
+
+              <!-- Categories -->
+              <div class="filter-widget">
+                <div class="filter-widget-header">
+                  <h3>Categories</h3>
+                  <button class="filter-toggle" data-target="categories">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
+                <ul class="filter-list" id="category-filters">
+                  <li>
+                    <label class="filter-checkbox"
+                      ><input
+                        type="checkbox"
+                        name="category"
+                        value="sneakers"
+                      /><span>Sneakers</span
+                      ><span class="count">(120)</span></label
+                    >
+                  </li>
+                  <li>
+                    <label class="filter-checkbox"
+                      ><input
+                        type="checkbox"
+                        name="category"
+                        value="jordan"
+                      /><span>Jordan</span
+                      ><span class="count">(80)</span></label
+                    >
+                  </li>
+                  <li>
+                    <label class="filter-checkbox"
+                      ><input
+                        type="checkbox"
+                        name="category"
+                        value="running"
+                      /><span>Running</span
+                      ><span class="count">(95)</span></label
+                    >
+                  </li>
+                  <li>
+                    <label class="filter-checkbox"
+                      ><input
+                        type="checkbox"
+                        name="category"
+                        value="casual"
+                      /><span>Casual</span
+                      ><span class="count">(150)</span></label
+                    >
+                  </li>
+                  <li>
+                    <label class="filter-checkbox"
+                      ><input
+                        type="checkbox"
+                        name="category"
+                        value="formal"
+                      /><span>Formal</span
+                      ><span class="count">(60)</span></label
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Price Range -->
+              <div class="filter-widget">
+                <div class="filter-widget-header">
+                  <h3>Price Range</h3>
+                  <button class="filter-toggle" data-target="price">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
+                <div class="price-range">
+                  <div class="price-slider-wrapper">
+                    <input
+                      type="range"
+                      min="0"
+                      max="50000"
+                      value="50000"
+                      class="price-slider"
+                      id="price-slider"
+                      aria-label="Price Range Slider"
+                    />
+                  </div>
+                  <div class="price-inputs">
+                    <div class="price-input-group">
+                      <label for="min-price">Min</label>
+                      <input
+                        type="number"
+                        id="min-price"
+                        value="0"
+                        placeholder="0"
+                        min="0"
+                      />
+                    </div>
+                    <span class="price-separator">-</span>
+                    <div class="price-input-group">
+                      <label for="max-price">Max</label>
+                      <input
+                        type="number"
+                        id="max-price"
+                        value="50000"
+                        placeholder="50000"
+                        max="50000"
+                      />
+                    </div>
+                  </div>
+                  <div class="price-display">
+                    <span id="price-display">Rs. 0 - Rs. 50,000</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Brands -->
+              <div class="filter-widget">
+                <div class="filter-widget-header">
+                  <h3>Brands</h3>
+                  <button class="filter-toggle" data-target="brands">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
+                <ul class="filter-list" id="brand-filters">
+                  <li>
+                    <label class="filter-checkbox"
+                      ><input type="checkbox" name="brand" value="nike" /><span
+                        >Nike</span
+                      ><span class="count">(85)</span></label
+                    >
+                  </li>
+                  <li>
+                    <label class="filter-checkbox"
+                      ><input
+                        type="checkbox"
+                        name="brand"
+                        value="adidas"
+                      /><span>Adidas</span
+                      ><span class="count">(72)</span></label
+                    >
+                  </li>
+                  <li>
+                    <label class="filter-checkbox"
+                      ><input
+                        type="checkbox"
+                        name="brand"
+                        value="jordan"
+                      /><span>Jordan</span
+                      ><span class="count">(45)</span></label
+                    >
+                  </li>
+                  <li>
+                    <label class="filter-checkbox"
+                      ><input type="checkbox" name="brand" value="puma" /><span
+                        >Puma</span
+                      ><span class="count">(38)</span></label
+                    >
+                  </li>
+                  <li>
+                    <label class="filter-checkbox"
+                      ><input
+                        type="checkbox"
+                        name="brand"
+                        value="newbalance"
+                      /><span>New Balance</span
+                      ><span class="count">(29)</span></label
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Size -->
+              <div class="filter-widget">
+                <div class="filter-widget-header">
+                  <h3>Size</h3>
+                  <button class="filter-toggle" data-target="sizes">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
+                <div class="size-filters" id="size-filters">
+                  <button class="size-filter" data-size="38">38</button>
+                  <button class="size-filter" data-size="39">39</button>
+                  <button class="size-filter" data-size="40">40</button>
+                  <button class="size-filter" data-size="41">41</button>
+                  <button class="size-filter" data-size="42">42</button>
+                  <button class="size-filter" data-size="43">43</button>
+                  <button class="size-filter" data-size="44">44</button>
+                  <button class="size-filter" data-size="45">45</button>
+                </div>
+              </div>
+
+              <!-- Colors -->
+              <div class="filter-widget">
+                <div class="filter-widget-header">
+                  <h3>Colors</h3>
+                  <button class="filter-toggle" data-target="colors">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
+                <div class="color-filters" id="color-filters">
+                  <button
+                    class="color-filter"
+                    data-color="black"
+                    style="background: #000"
+                    title="Black"
+                  ></button>
+                  <button
+                    class="color-filter"
+                    data-color="white"
+                    style="background: #fff; border: 2px solid #ddd"
+                    title="White"
+                  ></button>
+                  <button
+                    class="color-filter"
+                    data-color="red"
+                    style="background: #e74c3c"
+                    title="Red"
+                  ></button>
+                  <button
+                    class="color-filter"
+                    data-color="blue"
+                    style="background: #3498db"
+                    title="Blue"
+                  ></button>
+                  <button
+                    class="color-filter"
+                    data-color="green"
+                    style="background: #27ae60"
+                    title="Green"
+                  ></button>
+                  <button
+                    class="color-filter"
+                    data-color="orange"
+                    style="background: #f39c12"
+                    title="Orange"
+                  ></button>
+                </div>
+              </div>
+
+              <!-- Rating Filter -->
+              <div class="filter-widget">
+                <div class="filter-widget-header">
+                  <h3>Rating</h3>
+                  <button class="filter-toggle" data-target="rating">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
+                <ul class="filter-list" id="rating-filters">
+                  <li>
+                    <label class="filter-checkbox">
+                      <input type="checkbox" name="rating" value="5" />
+                      <span class="rating-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i>
+                      </span>
+                      <span class="count">(45)</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label class="filter-checkbox">
+                      <input type="checkbox" name="rating" value="4" />
+                      <span class="rating-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      </span>
+                      <span class="count">(120)</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label class="filter-checkbox">
+                      <input type="checkbox" name="rating" value="3" />
+                      <span class="rating-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i
+                        ><i class="fas fa-star"></i>
+                      </span>
+                      <span class="count">(80)</span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+
+            <!-- Products Content -->
+            <div class="products-content">
+              <!-- Toolbar -->
+              <div class="products-toolbar">
+                <div class="products-count">
+                  Showing <span id="showing-count">1-12</span> of
+                  <span id="total-count">120</span> products
+                </div>
+                <div class="toolbar-actions">
+                  <button
+                    class="btn btn-outline mobile-filter-btn"
+                    id="mobile-filter-btn"
+                    aria-label="Toggle Filters"
+                  >
+                    <i class="fas fa-filter"></i> Filters
+                  </button>
+                  <select
+                    class="sort-select"
+                    id="sort-select"
+                    aria-label="Sort products"
+                  >
+                    <option value="default">Default Sorting</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name-az">Name: A to Z</option>
+                    <option value="name-za">Name: Z to A</option>
+                    <option value="newest">Newest First</option>
+                    <option value="rating">Top Rated</option>
+                  </select>
+                  <div class="view-options">
+                    <button
+                      class="view-btn active"
+                      data-view="grid"
+                      id="grid-view"
+                      title="Grid View"
+                    >
+                      <i class="fas fa-th"></i>
+                    </button>
+                    <button
+                      class="view-btn"
+                      data-view="list"
+                      id="list-view"
+                      title="List View"
+                    >
+                      <i class="fas fa-list"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Products Grid -->
+              <div class="products-grid" id="products-grid">
+                <!-- Products loaded dynamically -->
+              </div>
+
+              <!-- Loading -->
+              <div
+                class="loading-spinner"
+                id="loading-spinner"
+                style="display: none"
+              >
+                <div class="spinner"></div>
+                <p>Loading products...</p>
+              </div>
+
+              <!-- Empty State -->
+              <div class="empty-state" id="empty-state" style="display: none">
+                <i class="fas fa-search"></i>
+                <h3>No Products Found</h3>
+                <p>Try adjusting your filters or search terms</p>
+                <button class="btn btn-primary" id="reset-filters-btn">
+                  Reset Filters
+                </button>
+              </div>
+
+              <!-- Pagination -->
+              <div class="pagination" id="pagination">
+                <button class="page-btn" id="prev-page" disabled>
+                  <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <div class="page-numbers" id="page-numbers">
+                  <!-- Generated dynamically -->
+                </div>
+                <button class="page-btn" id="next-page">
+                  Next <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-col">
+              <a href="index.html" class="footer-logo">
+                <span class="logo-icon">👟</span>
+                <span class="logo-text"
+                  >Jutta<span class="accent">Pasal</span></span
+                >
+              </a>
+              <p class="footer-description">
+                Your one-stop destination for premium footwear in Nepal.
+              </p>
+              <div class="footer-social">
+                <a href="#" class="social-link" title="Facebook"
+                  ><i class="fab fa-facebook"></i
+                ></a>
+                <a href="#" class="social-link" title="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" class="social-link" title="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" class="social-link" title="WhatsApp"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+              </div>
+            </div>
+            <div class="footer-col">
+              <h3>Quick Links</h3>
+              <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Categories</h3>
+              <ul class="footer-links">
+                <li><a href="products.html?category=sneakers">Sneakers</a></li>
+                <li><a href="products.html?category=jordan">Jordan</a></li>
+                <li><a href="products.html?category=running">Running</a></li>
+                <li><a href="products.html?category=casual">Casual</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Contact Info</h3>
+              <ul class="footer-contact">
+                <li>
+                  <i class="fas fa-map-marker-alt"></i
+                  ><span>Kathmandu, Nepal</span>
+                </li>
+                <li>
+                  <i class="fas fa-phone"></i><span>+977 9800000000</span>
+                </li>
+                <li>
+                  <i class="fas fa-envelope"></i
+                  ><span>info@juttapasal.com</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2024 Jutta Pasal. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div
+      class="modal"
+      id="quick-view-modal"
+      role="dialog"
+      aria-label="Quick View Product"
+    >
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close" aria-label="Close modal">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-body" id="quick-view-content"></div>
+      </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div
+      class="toast-container"
+      id="toast-container"
+      role="status"
+      aria-live="polite"
+    ></div>
+
+    <!-- Back to Top -->
+    <button
+      class="back-to-top"
+      id="back-to-top"
+      title="Back to top"
+      aria-label="Back to top"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

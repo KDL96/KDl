@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Wishlist - Jutta Pasal</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon">👟</span>
+          <span class="logo-text">Jutta<span class="accent">Pasal</span></span>
+        </a>
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link"
+                ><i class="fas fa-shoe-prints"></i> Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link"
+                ><i class="fas fa-info-circle"></i> About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+          </ul>
+          <div class="nav-close" id="nav-close">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <div class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-moon" id="theme-icon"></i>
+          </div>
+          <a href="wishlist.html" class="nav-action-btn active"
+            ><i class="fas fa-heart"></i
+            ><span class="badge" id="wishlist-count">0</span></a
+          >
+          <a href="cart.html" class="nav-action-btn"
+            ><i class="fas fa-shopping-cart"></i
+            ><span class="badge" id="cart-count">0</span></a
+          >
+          <div class="user-dropdown" id="user-dropdown">
+            <button class="nav-action-btn" id="user-btn">
+              <i class="fas fa-user"></i>
+            </button>
+            <div class="user-menu" id="user-menu">
+              <div class="user-menu-header" id="user-menu-header">
+                <p>Welcome, Guest</p>
+              </div>
+              <ul class="user-menu-list" id="user-menu-list">
+                <li>
+                  <a href="login.html"
+                    ><i class="fas fa-sign-in-alt"></i> Login</a
+                  >
+                </li>
+                <li>
+                  <a href="register.html"
+                    ><i class="fas fa-user-plus"></i> Register</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-toggle" id="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- Page Header -->
+      <section class="page-header">
+        <div class="container">
+          <h1>My Wishlist</h1>
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Wishlist</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Wishlist Section -->
+      <section class="wishlist-section">
+        <div class="container">
+          <!-- Wishlist Header -->
+          <div class="wishlist-header">
+            <p id="wishlist-info">
+              You have <span id="wishlist-total">0</span> items in your wishlist
+            </p>
+            <button
+              class="btn btn-outline"
+              id="clear-wishlist"
+              style="display: none"
+            >
+              <i class="fas fa-trash"></i> Clear Wishlist
+            </button>
+          </div>
+
+          <!-- Wishlist Grid -->
+          <div class="wishlist-grid products-grid" id="wishlist-grid">
+            <!-- Products loaded dynamically -->
+          </div>
+
+          <!-- Empty Wishlist -->
+          <div class="wishlist-empty" id="wishlist-empty" style="display: none">
+            <i class="fas fa-heart"></i>
+            <h2>Your wishlist is empty</h2>
+            <p>Save your favorite items here to buy them later!</p>
+            <a href="products.html" class="btn btn-primary">
+              <i class="fas fa-shopping-bag"></i> Browse Products
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recommended Products -->
+      <section
+        class="section"
+        id="recommended-section"
+        style="background: var(--bg-secondary)"
+      >
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle">You May Also Like</span>
+            <h2 class="section-title">Recommended For You</h2>
+          </div>
+          <div class="products-grid" id="recommended-products">
+            <!-- Products loaded dynamically -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-col">
+              <a href="index.html" class="footer-logo">
+                <span class="logo-icon">👟</span>
+                <span class="logo-text"
+                  >Jutta<span class="accent">Pasal</span></span
+                >
+              </a>
+              <p class="footer-description">
+                Your one-stop destination for premium footwear in Nepal.
+              </p>
+              <div class="footer-social">
+                <a href="#" class="social-link"
+                  ><img src="img/facebook.png" alt="Facebook"
+                /></a>
+                <a href="#" class="social-link"
+                  ><img src="img/linstagram.png" alt="Instagram"
+                /></a>
+                <a href="#" class="social-link"
+                  ><img src="img/twitter.png" alt="Twitter"
+                /></a>
+                <a href="#" class="social-link"
+                  ><img src="img/whatsapp.png" alt="WhatsApp"
+                /></a>
+              </div>
+            </div>
+            <div class="footer-col">
+              <h3>Quick Links</h3>
+              <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Categories</h3>
+              <ul class="footer-links">
+                <li><a href="products.html?category=sneakers">Sneakers</a></li>
+                <li><a href="products.html?category=jordan">Jordan</a></li>
+                <li><a href="products.html?category=running">Running</a></li>
+                <li><a href="products.html?category=casual">Casual</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Contact Info</h3>
+              <ul class="footer-contact">
+                <li>
+                  <i class="fas fa-map-marker-alt"></i
+                  ><span>Kathmandu, Nepal</span>
+                </li>
+                <li>
+                  <i class="fas fa-phone"></i><span>+977 9800000000</span>
+                </li>
+                <li>
+                  <i class="fas fa-envelope"></i
+                  ><span>info@juttapasal.com</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2024 Jutta Pasal. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        renderWishlist();
+        renderRecommendedProducts();
+
+        // Clear wishlist button
+        document
+          .getElementById("clear-wishlist")
+          .addEventListener("click", function () {
+            if (confirm("Are you sure you want to clear your wishlist?")) {
+              localStorage.removeItem("wishlist");
+              updateWishlistCount();
+              renderWishlist();
+              showToast("Success", "Wishlist cleared", "success");
+            }
+          });
+      });
+
+      function renderWishlist() {
+        const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        const products = getProducts();
+        const wishlistProducts = products.filter((p) =>
+          wishlist.includes(p.id)
+        );
+
+        const wishlistGrid = document.getElementById("wishlist-grid");
+        const wishlistEmpty = document.getElementById("wishlist-empty");
+        const clearBtn = document.getElementById("clear-wishlist");
+        const wishlistTotal = document.getElementById("wishlist-total");
+        const recommendedSection = document.getElementById(
+          "recommended-section"
+        );
+
+        wishlistTotal.textContent = wishlistProducts.length;
+
+        if (wishlistProducts.length === 0) {
+          wishlistGrid.style.display = "none";
+          wishlistEmpty.style.display = "block";
+          clearBtn.style.display = "none";
+          recommendedSection.style.display = "block";
+          return;
+        }
+
+        wishlistGrid.style.display = "grid";
+        wishlistEmpty.style.display = "none";
+        clearBtn.style.display = "inline-flex";
+        recommendedSection.style.display = "none";
+
+        wishlistGrid.innerHTML = wishlistProducts
+          .map((product) => createWishlistCard(product))
+          .join("");
+
+        // Add event listeners
+        wishlistGrid.querySelectorAll(".remove-wishlist-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const productId = parseInt(this.dataset.id);
+            removeFromWishlist(productId);
+          });
+        });
+
+        wishlistGrid.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const productId = parseInt(this.dataset.id);
+            addToCart(productId);
+          });
+        });
+      }
+
+      function createWishlistCard(product) {
+        return `
+                <div class="product-card" data-id="${product.id}">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="product-badges">
+                            ${
+                              product.isNew
+                                ? '<span class="product-badge new">New</span>'
+                                : ""
+                            }
+                            ${
+                              product.onSale
+                                ? '<span class="product-badge sale">-' +
+                                  product.discount +
+                                  "%</span>"
+                                : ""
+                            }
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn remove-wishlist-btn active" data-id="${
+                              product.id
+                            }" title="Remove from Wishlist">
+                                <i class="fas fa-heart-broken"></i>
+                            </button>
+                            <button class="product-action-btn quick-view-btn" data-id="${
+                              product.id
+                            }" onclick="openQuickView(${
+          product.id
+        })" title="Quick View">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${
+                          product.category
+                        }</span>
+                        <h3 class="product-name">
+                            <a href="product.html?id=${product.id}">${
+          product.name
+        }</a>
+                        </h3>
+                        <div class="product-rating">
+                            ${generateStars(product.rating)}
+                            <span>(${product.reviews})</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">Rs. ${product.price.toLocaleString()}</span>
+                            ${
+                              product.originalPrice
+                                ? `<span class="original-price">Rs. ${product.originalPrice.toLocaleString()}</span>`
+                                : ""
+                            }
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <button class="add-to-cart-btn" data-id="${product.id}">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `;
+      }
+
+      function generateStars(rating) {
+        let stars = "";
+        for (let i = 1; i <= 5; i++) {
+          if (i <= rating) {
+            stars += '<i class="fas fa-star"></i>';
+          } else if (i - 0.5 <= rating) {
+            stars += '<i class="fas fa-star-half-alt"></i>';
+          } else {
+            stars += '<i class="far fa-star"></i>';
+          }
+        }
+        return stars;
+      }
+
+      function removeFromWishlist(productId) {
+        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        wishlist = wishlist.filter((id) => id !== productId);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        updateWishlistCount();
+        renderWishlist();
+        showToast("Success", "Removed from wishlist", "success");
+      }
+
+      function renderRecommendedProducts() {
+        const products = getProducts();
+        const recommendedProducts = products
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 4);
+        const container = document.getElementById("recommended-products");
+
+        if (container) {
+          renderProducts(container, recommendedProducts);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jutta Pasal - Premium Footwear Store in Nepal</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Critical CSS for Preloader */
+      .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        transition: opacity 0.5s, visibility 0.5s;
+      }
+      [data-theme="dark"] .preloader {
+        background: #1a1a2e;
+      }
+      .preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .loader {
+        text-align: center;
+      }
+      .shoe-loader {
+        font-size: 4rem;
+        animation: bounce 1s infinite;
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+      .loader p {
+        margin-top: 1rem;
+        color: #636e72;
+        font-weight: 500;
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="loader">
+        <div class="shoe-loader">👟</div>
+        <p>Loading Jutta Pasal...</p>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon">👟</span>
+          <span class="logo-text">Jutta<span class="accent">Pasal</span></span>
+        </a>
+
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link active">
+                <i class="fas fa-home"></i> Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link">
+                <i class="fas fa-shoe-prints"></i> Products
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">
+                <i class="fas fa-info-circle"></i> About
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">
+                <i class="fas fa-envelope"></i> Contact
+              </a>
+            </li>
+          </ul>
+          <div class="nav-close" id="nav-close">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <!-- Theme Toggle -->
+          <div class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">
+            <i class="fas fa-moon" id="theme-icon"></i>
+          </div>
+
+          <!-- Wishlist -->
+          <a href="wishlist.html" class="nav-action-btn" title="Wishlist">
+            <i class="fas fa-heart"></i>
+            <span class="badge" id="wishlist-count">0</span>
+          </a>
+
+          <!-- Cart -->
+          <a href="cart.html" class="nav-action-btn" title="Cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge" id="cart-count">0</span>
+          </a>
+
+          <!-- User -->
+          <div class="user-dropdown" id="user-dropdown">
+            <button class="nav-action-btn" id="user-btn" title="Account">
+              <i class="fas fa-user"></i>
+            </button>
+            <div class="user-menu" id="user-menu">
+              <div class="user-menu-header" id="user-menu-header">
+                <p>Welcome, Guest</p>
+              </div>
+              <ul class="user-menu-list" id="user-menu-list">
+                <li>
+                  <a href="login.html"
+                    ><i class="fas fa-sign-in-alt"></i> Login</a
+                  >
+                </li>
+                <li>
+                  <a href="register.html"
+                    ><i class="fas fa-user-plus"></i> Register</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Mobile Toggle -->
+          <div class="nav-toggle" id="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Hero Section -->
+      <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+          <div class="hero-data">
+            <span class="hero-subtitle">New Collection 2024</span>
+            <h1 class="hero-title">
+              Step Into <span class="accent">Style</span>
+            </h1>
+            <p class="hero-description">
+              Discover premium footwear that combines comfort, style, and
+              durability. Your perfect pair awaits at Jutta Pasal.
+            </p>
+            <div class="hero-buttons">
+              <a href="products.html" class="btn btn-primary">
+                <i class="fas fa-shopping-bag"></i> Shop Now
+              </a>
+              <a href="#featured" class="btn btn-outline">
+                <i class="fas fa-eye"></i> View Collection
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Products</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">50k+</span>
+                <span class="stat-label">Customers</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Authentic</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="hero-shoe-container">
+              <div class="hero-shoe-bg"></div>
+              <img
+                src="img/jordan.png"
+                alt="Featured Shoe"
+                class="hero-shoe"
+                onerror="this.src='https://via.placeholder.com/400x300?text=Shoe+Image'"
+              />
+              <div class="hero-shoe-shadow"></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-scroll">
+          <a href="#categories" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- Categories Section -->
+      <section class="categories section" id="categories">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle">Browse By</span>
+            <h2 class="section-title">Categories</h2>
+          </div>
+          <div class="categories-grid">
+            <a href="products.html?category=sneakers" class="category-card">
+              <div class="category-icon">
+                <img
+                  src="img/sneakers.png"
+                  alt="Sneakers"
+                  onerror="this.src='https://via.placeholder.com/80?text=👟'"
+                />
+              </div>
+              <h3>Sneakers</h3>
+              <p>120+ Products</p>
+              <span class="category-arrow"
+                ><i class="fas fa-arrow-right"></i
+              ></span>
+            </a>
+            <a
+              href="products.html?category=jordan"
+              class="category-card featured"
+            >
+              <div class="category-icon">
+                <img
+                  src="img/jordan.png"
+                  alt="Jordan"
+                  onerror="this.src='https://via.placeholder.com/80?text=👟'"
+                />
+              </div>
+              <h3>Jordan</h3>
+              <p>80+ Products</p>
+              <span class="category-arrow"
+                ><i class="fas fa-arrow-right"></i
+              ></span>
+            </a>
+            <a href="products.html?category=running" class="category-card">
+              <div class="category-icon">
+                <img
+                  src="img/hippie2.png"
+                  alt="Running"
+                  onerror="this.src='https://via.placeholder.com/80?text=👟'"
+                />
+              </div>
+              <h3>Running</h3>
+              <p>95+ Products</p>
+              <span class="category-arrow"
+                ><i class="fas fa-arrow-right"></i
+              ></span>
+            </a>
+            <a href="products.html?category=casual" class="category-card">
+              <div class="category-icon">
+                <img
+                  src="img/Hippie.png"
+                  alt="Casual"
+                  onerror="this.src='https://via.placeholder.com/80?text=👟'"
+                />
+              </div>
+              <h3>Casual</h3>
+              <p>150+ Products</p>
+              <span class="category-arrow"
+                ><i class="fas fa-arrow-right"></i
+              ></span>
+            </a>
+            <a href="products.html?category=formal" class="category-card">
+              <div class="category-icon">
+                <img
+                  src="img/masten.png"
+                  alt="Formal"
+                  onerror="this.src='https://via.placeholder.com/80?text=👟'"
+                />
+              </div>
+              <h3>Formal</h3>
+              <p>60+ Products</p>
+              <span class="category-arrow"
+                ><i class="fas fa-arrow-right"></i
+              ></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Products -->
+      <section class="featured section" id="featured">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle">Our Best</span>
+            <h2 class="section-title">Featured Products</h2>
+            <div class="section-tabs">
+              <button class="tab-btn active" data-filter="all">All</button>
+              <button class="tab-btn" data-filter="new">New Arrivals</button>
+              <button class="tab-btn" data-filter="bestseller">
+                Best Sellers
+              </button>
+              <button class="tab-btn" data-filter="sale">On Sale</button>
+            </div>
+          </div>
+          <div class="products-grid" id="featured-products">
+            <!-- Products will be loaded dynamically -->
+            <p
+              style="
+                grid-column: 1/-1;
+                text-align: center;
+                padding: 2rem;
+                color: var(--text-secondary);
+              "
+            >
+              Loading products...
+            </p>
+          </div>
+          <div class="section-footer">
+            <a href="products.html" class="btn btn-primary">
+              View All Products <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Special Offer Banner -->
+      <section class="offer-banner section">
+        <div class="container">
+          <div class="offer-content">
+            <div class="offer-data">
+              <span class="offer-subtitle">Limited Time Offer</span>
+              <h2 class="offer-title">
+                Get <span class="accent">50% OFF</span>
+              </h2>
+              <p class="offer-description">
+                On selected premium sneakers. Don't miss out on this exclusive
+                deal!
+              </p>
+              <div class="offer-countdown" id="countdown">
+                <div class="countdown-item">
+                  <span class="countdown-number" id="days">00</span>
+                  <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                  <span class="countdown-number" id="hours">00</span>
+                  <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                  <span class="countdown-number" id="minutes">00</span>
+                  <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                  <span class="countdown-number" id="seconds">00</span>
+                  <span class="countdown-label">Seconds</span>
+                </div>
+              </div>
+              <a href="products.html?sale=true" class="btn btn-light">
+                Shop Sale <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+            <div class="offer-image">
+              <img
+                src="img/jontan2.png"
+                alt="Sale Shoe"
+                onerror="this.src='https://via.placeholder.com/400x300?text=Sale'"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features section">
+        <div class="container">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i
+                  class="fas fa-truck"
+                  style="font-size: 2.5rem; color: var(--primary-color)"
+                ></i>
+              </div>
+              <h3>Free Shipping</h3>
+              <p>Free shipping on orders over Rs. 5000</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i
+                  class="fas fa-undo"
+                  style="font-size: 2.5rem; color: var(--primary-color)"
+                ></i>
+              </div>
+              <h3>Easy Returns</h3>
+              <p>30-day hassle-free return policy</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i
+                  class="fas fa-gift"
+                  style="font-size: 2.5rem; color: var(--primary-color)"
+                ></i>
+              </div>
+              <h3>Gift Cards</h3>
+              <p>Perfect gift for shoe lovers</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i
+                  class="fas fa-shield-alt"
+                  style="font-size: 2.5rem; color: var(--primary-color)"
+                ></i>
+              </div>
+              <h3>Secure Payment</h3>
+              <p>100% secure payment methods</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section
+        class="testimonials section"
+        style="background: var(--bg-secondary)"
+      >
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle">What People Say</span>
+            <h2 class="section-title">Customer Reviews</h2>
+          </div>
+          <div class="testimonials-slider" id="testimonials-slider">
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                "Best shoe store in Nepal! The quality is amazing and delivery
+                was super fast. Highly recommend Jutta Pasal to everyone."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">RS</div>
+                <div class="author-info">
+                  <h4>Rajesh Sharma</h4>
+                  <span>Kathmandu</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                "I've been buying from Jutta Pasal for years. Their collection
+                is always up-to-date and the prices are very competitive."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">SP</div>
+                <div class="author-info">
+                  <h4>Sita Poudel</h4>
+                  <span>Pokhara</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <p class="testimonial-text">
+                "Great customer service and authentic products. The return
+                process was smooth when I needed a different size."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">AK</div>
+                <div class="author-info">
+                  <h4>Anil Karki</h4>
+                  <span>Lalitpur</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Newsletter -->
+      <section class="newsletter section">
+        <div class="container">
+          <div class="newsletter-content">
+            <div class="newsletter-data">
+              <h2>Subscribe to Our Newsletter</h2>
+              <p>
+                Get updates on new arrivals, special offers, and exclusive
+                deals!
+              </p>
+            </div>
+            <form class="newsletter-form" id="newsletter-form">
+              <div class="form-group" style="display: flex; gap: 0.5rem">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  required
+                  style="
+                    flex: 1;
+                    padding: 1rem;
+                    border-radius: 10px;
+                    border: 1px solid var(--border-color);
+                    background: var(--bg-primary);
+                  "
+                />
+                <button type="submit" class="btn btn-primary">
+                  Subscribe <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-col">
+              <a href="index.html" class="footer-logo">
+                <span class="logo-icon">👟</span>
+                <span class="logo-text"
+                  >Jutta<span class="accent">Pasal</span></span
+                >
+              </a>
+              <p class="footer-description">
+                Your one-stop destination for premium footwear in Nepal. Quality
+                shoes at affordable prices.
+              </p>
+              <div class="footer-social">
+                <a
+                  href="#"
+                  class="social-link"
+                  style="
+                    background: rgba(255, 255, 255, 0.1);
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  href="#"
+                  class="social-link"
+                  style="
+                    background: rgba(255, 255, 255, 0.1);
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a
+                  href="#"
+                  class="social-link"
+                  style="
+                    background: rgba(255, 255, 255, 0.1);
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a
+                  href="#"
+                  class="social-link"
+                  style="
+                    background: rgba(255, 255, 255, 0.1);
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+              </div>
+            </div>
+            <div class="footer-col">
+              <h3>Quick Links</h3>
+              <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Categories</h3>
+              <ul class="footer-links">
+                <li><a href="products.html?category=sneakers">Sneakers</a></li>
+                <li><a href="products.html?category=jordan">Jordan</a></li>
+                <li><a href="products.html?category=running">Running</a></li>
+                <li><a href="products.html?category=casual">Casual</a></li>
+                <li><a href="products.html?category=formal">Formal</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Contact Info</h3>
+              <ul class="footer-contact">
+                <li>
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Kathmandu, Nepal</span>
+                </li>
+                <li>
+                  <i class="fas fa-phone"></i>
+                  <span>+977 9800000000</span>
+                </li>
+                <li>
+                  <i class="fas fa-envelope"></i>
+                  <span>info@juttapasal.com</span>
+                </li>
+                <li>
+                  <i class="fas fa-clock"></i>
+                  <span>Sun - Fri: 10AM - 8PM</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2024 Jutta Pasal. All Rights Reserved.</p>
+          <div
+            class="footer-payments"
+            style="display: flex; align-items: center; gap: 1rem"
+          >
+            <span
+              style="
+                padding: 0.5rem 0.75rem;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 5px;
+                font-size: 0.875rem;
+              "
+              >Visa</span
+            >
+            <span
+              style="
+                padding: 0.5rem 0.75rem;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 5px;
+                font-size: 0.875rem;
+              "
+              >eSewa</span
+            >
+            <span
+              style="
+                padding: 0.5rem 0.75rem;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 5px;
+                font-size: 0.875rem;
+              "
+              >Khalti</span
+            >
+            <span
+              style="
+                padding: 0.5rem 0.75rem;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 5px;
+                font-size: 0.875rem;
+              "
+              >COD</span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quick-view-modal">
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-body" id="quick-view-content">
+          <!-- Content loaded dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- WhatsApp Float -->
+    <a
+      href="https://wa.me/9779800000000"
+      class="whatsapp-float"
+      target="_blank"
+      style="
+        position: fixed;
+        bottom: 1.5rem;
+        left: 1.5rem;
+        width: 60px;
+        height: 60px;
+        background: #25d366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 999;
+      "
+    >
+      <i class="fab fa-whatsapp" style="font-size: 2rem; color: white"></i>
+    </a>
+
+    <!-- ============================================
+         ALL JAVASCRIPT - INLINE FOR RELIABILITY
+         ============================================ -->
+    <script>
+      // ===== HIDE PRELOADER IMMEDIATELY =====
+      // Force hide preloader after 2 seconds max
+      setTimeout(function () {
+        const preloader = document.getElementById("preloader");
+        if (preloader) {
+          preloader.classList.add("hidden");
+        }
+      }, 2000);
+
+      // Also hide on window load
+      window.addEventListener("load", function () {
+        const preloader = document.getElementById("preloader");
+        if (preloader) {
+          setTimeout(() => {
+            preloader.classList.add("hidden");
+          }, 500);
+        }
+      });
+
+      // ===== PRODUCTS DATA =====
+      function getProducts() {
+        return [
+          {
+            id: 1,
+            name: "Nike Air Jordan 1 Retro High OG",
+            category: "Jordan",
+            brand: "Nike",
+            price: 18500,
+            originalPrice: 22000,
+            discount: 16,
+            image: "img/jordan.png",
+            rating: 4.8,
+            reviews: 245,
+            sizes: [38, 39, 40, 41, 42, 43, 44, 45],
+            colors: ["black", "red", "white"],
+            isNew: false,
+            isBestseller: true,
+            onSale: true,
+            description:
+              "The Air Jordan 1 Retro High OG is a timeless classic.",
+          },
+          {
+            id: 2,
+            name: "Nike Space Hippie 04",
+            category: "Sneakers",
+            brand: "Nike",
+            price: 14999,
+            image: "img/hippie2.png",
+            rating: 4.6,
+            reviews: 128,
+            sizes: [39, 40, 41, 42, 43, 44],
+            colors: ["blue", "green"],
+            isNew: true,
+            isBestseller: false,
+            onSale: false,
+            description: "Made with at least 25% recycled content.",
+          },
+          {
+            id: 3,
+            name: "Nike Air Max 270 React",
+            category: "Running",
+            brand: "Nike",
+            price: 16500,
+            originalPrice: 19000,
+            discount: 13,
+            image: "img/Hippie.png",
+            rating: 4.7,
+            reviews: 189,
+            sizes: [38, 39, 40, 41, 42, 43],
+            colors: ["white", "black", "blue"],
+            isNew: false,
+            isBestseller: true,
+            onSale: true,
+            description: "Combining two of the best Nike Air technologies.",
+          },
+          {
+            id: 4,
+            name: "Air Jordan 4 Retro",
+            category: "Jordan",
+            brand: "Nike",
+            price: 21000,
+            image: "img/jontan2.png",
+            rating: 4.9,
+            reviews: 312,
+            sizes: [40, 41, 42, 43, 44, 45],
+            colors: ["white", "red"],
+            isNew: true,
+            isBestseller: true,
+            onSale: false,
+            description:
+              "The shoe that Tinker Hatfield designed for MJ in 1989.",
+          },
+          {
+            id: 5,
+            name: "Nike Crater Impact",
+            category: "Casual",
+            brand: "Nike",
+            price: 11999,
+            image: "img/crater.png",
+            rating: 4.4,
+            reviews: 87,
+            sizes: [38, 39, 40, 41, 42],
+            colors: ["black", "white"],
+            isNew: true,
+            isBestseller: false,
+            onSale: false,
+            description: "Sustainability meets style.",
+          },
+          {
+            id: 6,
+            name: "Nike Air Force 1 Master",
+            category: "Sneakers",
+            brand: "Nike",
+            price: 13500,
+            originalPrice: 15000,
+            discount: 10,
+            image: "img/masten.png",
+            rating: 4.5,
+            reviews: 156,
+            sizes: [39, 40, 41, 42, 43, 44],
+            colors: ["white", "black"],
+            isNew: false,
+            isBestseller: false,
+            onSale: true,
+            description: "The iconic AF1 silhouette with premium materials.",
+          },
+          {
+            id: 7,
+            name: "Classic Street Sneakers",
+            category: "Sneakers",
+            brand: "Nike",
+            price: 9999,
+            image: "img/sneakers.png",
+            rating: 4.3,
+            reviews: 98,
+            sizes: [38, 39, 40, 41, 42, 43],
+            colors: ["white", "blue", "red"],
+            isNew: false,
+            isBestseller: false,
+            onSale: false,
+            description: "Everyday comfort meets street style.",
+          },
+          {
+            id: 8,
+            name: "Air Jordan 1 Low",
+            category: "Jordan",
+            brand: "Nike",
+            price: 12500,
+            originalPrice: 14000,
+            discount: 11,
+            image: "img/jordan.png",
+            rating: 4.6,
+            reviews: 203,
+            sizes: [39, 40, 41, 42, 43, 44, 45],
+            colors: ["black", "white", "red"],
+            isNew: false,
+            isBestseller: true,
+            onSale: true,
+            description: "The low-cut version of the legendary AJ1.",
+          },
+        ];
+      }
+
+      // ===== GENERATE STAR RATING =====
+      function generateStars(rating) {
+        let stars = "";
+        for (let i = 1; i <= 5; i++) {
+          if (i <= rating) {
+            stars += '<i class="fas fa-star"></i>';
+          } else if (i - 0.5 <= rating) {
+            stars += '<i class="fas fa-star-half-alt"></i>';
+          } else {
+            stars += '<i class="far fa-star"></i>';
+          }
+        }
+        return stars;
+      }
+
+      // ===== CREATE PRODUCT CARD =====
+      function createProductCard(product) {
+        const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        const isWishlisted = wishlist.includes(product.id);
+
+        return `
+                <div class="product-card" data-id="${product.id}">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${
+          product.name
+        }" onerror="this.src='https://via.placeholder.com/280x250?text=Product'">
+                        <div class="product-badges">
+                            ${
+                              product.isNew
+                                ? '<span class="product-badge new">New</span>'
+                                : ""
+                            }
+                            ${
+                              product.onSale
+                                ? '<span class="product-badge sale">-' +
+                                  product.discount +
+                                  "%</span>"
+                                : ""
+                            }
+                            ${
+                              product.isBestseller
+                                ? '<span class="product-badge hot">Hot</span>'
+                                : ""
+                            }
+                        </div>
+                        <div class="product-actions">
+                            <button class="product-action-btn wishlist-btn ${
+                              isWishlisted ? "active" : ""
+                            }" data-id="${product.id}">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="product-action-btn quick-view-btn" data-id="${
+                              product.id
+                            }">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${
+                          product.category
+                        }</span>
+                        <h3 class="product-name">
+                            <a href="product.html?id=${product.id}">${
+          product.name
+        }</a>
+                        </h3>
+                        <div class="product-rating">
+                            ${generateStars(product.rating)}
+                            <span>(${product.reviews})</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">Rs. ${product.price.toLocaleString()}</span>
+                            ${
+                              product.originalPrice
+                                ? `<span class="original-price">Rs. ${product.originalPrice.toLocaleString()}</span>`
+                                : ""
+                            }
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <button class="add-to-cart-btn" data-id="${product.id}">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `;
+      }
+
+      // ===== RENDER PRODUCTS =====
+      function renderProducts(container, products) {
+        if (!container) return;
+
+        container.innerHTML = products
+          .map((product) => createProductCard(product))
+          .join("");
+
+        // Add event listeners for add to cart
+        container.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const productId = parseInt(this.getAttribute("data-id"));
+            addToCart(productId);
+          });
+        });
+
+        // Add event listeners for wishlist
+        container.querySelectorAll(".wishlist-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const productId = parseInt(this.getAttribute("data-id"));
+            toggleWishlist(productId);
+            this.classList.toggle("active");
+          });
+        });
+
+        // Add event listeners for quick view
+        container.querySelectorAll(".quick-view-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const productId = parseInt(this.getAttribute("data-id"));
+            showToast("Info", "Quick view coming soon!", "info");
+          });
+        });
+      }
+
+      // ===== CART FUNCTIONS =====
+      function getCart() {
+        return JSON.parse(localStorage.getItem("cart")) || [];
+      }
+
+      function addToCart(productId, size = "42", quantity = 1) {
+        const products = getProducts();
+        const product = products.find((p) => p.id === productId);
+
+        if (!product) {
+          showToast("Error", "Product not found", "error");
+          return;
+        }
+
+        const cart = getCart();
+        const existingItem = cart.find(
+          (item) => item.id === productId && item.size === size
+        );
+
+        if (existingItem) {
+          existingItem.quantity += quantity;
+        } else {
+          cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            size: size,
+            quantity: quantity,
+          });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+        showToast("Success", `${product.name} added to cart!`, "success");
+      }
+
+      function updateCartCount() {
+        const cart = getCart();
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const countElements = document.querySelectorAll("#cart-count");
+        countElements.forEach((el) => (el.textContent = count));
+      }
+
+      // ===== WISHLIST FUNCTIONS =====
+      function getWishlist() {
+        return JSON.parse(localStorage.getItem("wishlist")) || [];
+      }
+
+      function toggleWishlist(productId) {
+        let wishlist = getWishlist();
+        const index = wishlist.indexOf(productId);
+
+        if (index === -1) {
+          wishlist.push(productId);
+          showToast("Success", "Added to wishlist", "success");
+        } else {
+          wishlist.splice(index, 1);
+          showToast("Success", "Removed from wishlist", "success");
+        }
+
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        updateWishlistCount();
+      }
+
+      function updateWishlistCount() {
+        const wishlist = getWishlist();
+        const countElements = document.querySelectorAll("#wishlist-count");
+        countElements.forEach((el) => (el.textContent = wishlist.length));
+      }
+
+      // ===== TOAST NOTIFICATIONS =====
+      function showToast(title, message, type = "info") {
+        const container = document.getElementById("toast-container");
+        if (!container) return;
+
+        const toast = document.createElement("div");
+        toast.className = `toast ${type}`;
+
+        const icons = {
+          success: "fas fa-check-circle",
+          error: "fas fa-times-circle",
+          warning: "fas fa-exclamation-circle",
+          info: "fas fa-info-circle",
+        };
+
+        const colors = {
+          success: "#00b894",
+          error: "#e74c3c",
+          warning: "#f1c40f",
+          info: "#3498db",
+        };
+
+        toast.innerHTML = `
+                <div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: ${colors[type]}20; border-radius: 50%; color: ${colors[type]};">
+                    <i class="${icons[type]}"></i>
+                </div>
+                <div style="flex: 1;">
+                    <div style="font-weight: 600;">${title}</div>
+                    <div style="font-size: 0.875rem; color: var(--text-secondary);">${message}</div>
+                </div>
+                <button onclick="this.parentElement.remove()" style="background: none; border: none; cursor: pointer; color: var(--text-muted);">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+
+        toast.style.cssText = `
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 1rem 1.25rem;
+                background: var(--bg-primary);
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+                min-width: 300px;
+                max-width: 400px;
+                animation: slideIn 0.3s ease;
+            `;
+
+        container.appendChild(toast);
+
+        // Auto remove after 4 seconds
+        setTimeout(() => {
+          if (toast.parentElement) {
+            toast.style.animation = "slideOut 0.3s ease forwards";
+            setTimeout(() => toast.remove(), 300);
+          }
+        }, 4000);
+      }
+
+      // ===== THEME TOGGLE =====
+      function initTheme() {
+        const themeToggle = document.getElementById("theme-toggle");
+        const themeIcon = document.getElementById("theme-icon");
+        const html = document.documentElement;
+
+        // Check saved theme
+        const savedTheme = localStorage.getItem("theme") || "light";
+        html.setAttribute("data-theme", savedTheme);
+        updateThemeIcon(savedTheme);
+
+        if (themeToggle) {
+          themeToggle.addEventListener("click", function () {
+            const currentTheme = html.getAttribute("data-theme");
+            const newTheme = currentTheme === "light" ? "dark" : "light";
+
+            html.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            updateThemeIcon(newTheme);
+
+            showToast("Theme Changed", `Switched to ${newTheme} mode`, "info");
+          });
+        }
+
+        function updateThemeIcon(theme) {
+          if (themeIcon) {
+            themeIcon.className =
+              theme === "light" ? "fas fa-moon" : "fas fa-sun";
+          }
+        }
+      }
+
+      // ===== MOBILE NAVIGATION =====
+      function initMobileNav() {
+        const navToggle = document.getElementById("nav-toggle");
+        const navClose = document.getElementById("nav-close");
+        const navMenu = document.getElementById("nav-menu");
+
+        if (navToggle && navMenu) {
+          navToggle.addEventListener("click", function () {
+            navMenu.classList.add("active");
+            document.body.style.overflow = "hidden";
+          });
+        }
+
+        if (navClose && navMenu) {
+          navClose.addEventListener("click", function () {
+            navMenu.classList.remove("active");
+            document.body.style.overflow = "";
+          });
+        }
+      }
+
+      // ===== HEADER SCROLL =====
+      function initHeader() {
+        const header = document.getElementById("header");
+        if (header) {
+          window.addEventListener("scroll", function () {
+            if (window.scrollY > 50) {
+              header.classList.add("scrolled");
+            } else {
+              header.classList.remove("scrolled");
+            }
+          });
+        }
+      }
+
+      // ===== BACK TO TOP =====
+      function initBackToTop() {
+        const backToTop = document.getElementById("back-to-top");
+
+        if (backToTop) {
+          window.addEventListener("scroll", function () {
+            if (window.scrollY > 500) {
+              backToTop.classList.add("visible");
+            } else {
+              backToTop.classList.remove("visible");
+            }
+          });
+
+          backToTop.addEventListener("click", function () {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          });
+        }
+      }
+
+      // ===== COUNTDOWN TIMER =====
+      function initCountdown() {
+        const daysEl = document.getElementById("days");
+        const hoursEl = document.getElementById("hours");
+        const minutesEl = document.getElementById("minutes");
+        const secondsEl = document.getElementById("seconds");
+
+        if (!daysEl) return;
+
+        // Set countdown to 7 days from now
+        const endDate = new Date();
+        endDate.setDate(endDate.getDate() + 7);
+
+        function updateCountdown() {
+          const now = new Date();
+          const diff = endDate - now;
+
+          if (diff <= 0) return;
+
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          daysEl.textContent = String(days).padStart(2, "0");
+          hoursEl.textContent = String(hours).padStart(2, "0");
+          minutesEl.textContent = String(minutes).padStart(2, "0");
+          secondsEl.textContent = String(seconds).padStart(2, "0");
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+
+      // ===== USER MENU =====
+      function initUserMenu() {
+        const userMenuHeader = document.getElementById("user-menu-header");
+        const userMenuList = document.getElementById("user-menu-list");
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+        if (userMenuHeader && userMenuList && currentUser) {
+          userMenuHeader.innerHTML = `<p>Welcome, ${currentUser.firstName}</p>`;
+          userMenuList.innerHTML = `
+                    <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                    <li><a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a></li>
+                    <li><a href="#" id="header-logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                `;
+
+          document
+            .getElementById("header-logout")
+            ?.addEventListener("click", function (e) {
+              e.preventDefault();
+              localStorage.removeItem("currentUser");
+              showToast("Success", "Logged out successfully", "success");
+              setTimeout(() => location.reload(), 1000);
+            });
+        }
+      }
+
+      // ===== TAB FILTERING =====
+      function initTabs() {
+        const tabBtns = document.querySelectorAll(".tab-btn");
+        const featuredGrid = document.getElementById("featured-products");
+
+        tabBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            tabBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            const filter = this.getAttribute("data-filter");
+            let products = getProducts();
+
+            if (filter === "new") {
+              products = products.filter((p) => p.isNew);
+            } else if (filter === "bestseller") {
+              products = products.filter((p) => p.isBestseller);
+            } else if (filter === "sale") {
+              products = products.filter((p) => p.onSale);
+            }
+
+            if (featuredGrid) {
+              renderProducts(featuredGrid, products.slice(0, 8));
+            }
+          });
+        });
+      }
+
+      // ===== NEWSLETTER FORM =====
+      function initNewsletter() {
+        const form = document.getElementById("newsletter-form");
+        if (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            showToast("Success", "Thank you for subscribing!", "success");
+            this.reset();
+          });
+        }
+      }
+
+      // ===== INITIALIZE EVERYTHING =====
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("DOM Loaded - Initializing Jutta Pasal...");
+
+        // Initialize components
+        initTheme();
+        initMobileNav();
+        initHeader();
+        initBackToTop();
+        initCountdown();
+        initUserMenu();
+        initTabs();
+        initNewsletter();
+
+        // Update counts
+        updateCartCount();
+        updateWishlistCount();
+
+        // Load featured products
+        const featuredGrid = document.getElementById("featured-products");
+        if (featuredGrid) {
+          const products = getProducts();
+          renderProducts(featuredGrid, products.slice(0, 8));
+        }
+
+        console.log("Jutta Pasal initialized successfully!");
+      });
+
+      // Add CSS animation keyframes
+      const style = document.createElement("style");
+      style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+      document.head.appendChild(style);
+    </script>
+  </body>
+</html>

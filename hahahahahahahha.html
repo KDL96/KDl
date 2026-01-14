@@ -1,0 +1,2563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypeMaster Pro - Typing Speed Test</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg-primary: #1a1a2e;
+        --bg-secondary: #16213e;
+        --bg-tertiary: #0f3460;
+        --text-primary: #e94560;
+        --text-secondary: #ffffff;
+        --text-tertiary: #6b7280;
+        --accent: #e94560;
+        --accent-hover: #ff6b6b;
+        --correct: #4ade80;
+        --incorrect: #ef4444;
+        --cursor: #e94560;
+        --transition: all 0.3s ease;
+      }
+
+      .theme-ocean {
+        --bg-primary: #0a192f;
+        --bg-secondary: #112240;
+        --bg-tertiary: #1d3557;
+        --text-primary: #64ffda;
+        --text-secondary: #ccd6f6;
+        --text-tertiary: #8892b0;
+        --accent: #64ffda;
+        --accent-hover: #4fd1c5;
+        --correct: #64ffda;
+        --incorrect: #ff6b6b;
+        --cursor: #64ffda;
+      }
+
+      .theme-forest {
+        --bg-primary: #1a1f16;
+        --bg-secondary: #2d3a24;
+        --bg-tertiary: #3d4f32;
+        --text-primary: #a8e6cf;
+        --text-secondary: #dcedc8;
+        --text-tertiary: #7cb083;
+        --accent: #a8e6cf;
+        --accent-hover: #81c784;
+        --correct: #a8e6cf;
+        --incorrect: #ff8a80;
+        --cursor: #a8e6cf;
+      }
+
+      .theme-sunset {
+        --bg-primary: #1f1135;
+        --bg-secondary: #2d1b4e;
+        --bg-tertiary: #462a6c;
+        --text-primary: #ff9a9e;
+        --text-secondary: #fecfef;
+        --text-tertiary: #b88db9;
+        --accent: #ff9a9e;
+        --accent-hover: #ffd1d1;
+        --correct: #98fb98;
+        --incorrect: #ff6b6b;
+        --cursor: #ff9a9e;
+      }
+
+      .theme-light {
+        --bg-primary: #f5f5f5;
+        --bg-secondary: #e8e8e8;
+        --bg-tertiary: #d4d4d4;
+        --text-primary: #2563eb;
+        --text-secondary: #1f2937;
+        --text-tertiary: #6b7280;
+        --accent: #2563eb;
+        --accent-hover: #1d4ed8;
+        --correct: #16a34a;
+        --incorrect: #dc2626;
+        --cursor: #2563eb;
+      }
+
+      .theme-coffee {
+        --bg-primary: #1b1510;
+        --bg-secondary: #2c231c;
+        --bg-tertiary: #3d322a;
+        --text-primary: #d4a574;
+        --text-secondary: #e8d5c4;
+        --text-tertiary: #9a8478;
+        --accent: #d4a574;
+        --accent-hover: #e8c49a;
+        --correct: #a8d5ba;
+        --incorrect: #e57373;
+        --cursor: #d4a574;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-secondary);
+        min-height: 100vh;
+        transition: var(--transition);
+        overflow-x: hidden;
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 4px;
+      }
+
+      /* Header */
+      .header {
+        background: var(--bg-secondary);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        cursor: pointer;
+      }
+
+      .logo i {
+        font-size: 1.75rem;
+      }
+
+      .nav {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-tertiary);
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: var(--transition);
+        font-weight: 500;
+      }
+
+      .nav-item:hover,
+      .nav-item.active {
+        color: var(--text-primary);
+        background: var(--bg-tertiary);
+      }
+
+      /* Main Container */
+      .main-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* Mode Selection */
+      .mode-selection {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .mode-group {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--bg-secondary);
+        padding: 0.5rem;
+        border-radius: 12px;
+      }
+
+      .mode-group-label {
+        color: var(--text-tertiary);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 0 0.5rem;
+      }
+
+      .mode-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        background: transparent;
+        color: var(--text-tertiary);
+        cursor: pointer;
+        border-radius: 8px;
+        transition: var(--transition);
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .mode-btn:hover {
+        color: var(--text-secondary);
+      }
+
+      .mode-btn.active {
+        background: var(--accent);
+        color: var(--bg-primary);
+      }
+
+      /* Stats Display */
+      .stats-display {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-bottom: 2rem;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-value {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .stat-label {
+        color: var(--text-tertiary);
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Typing Area */
+      .typing-container {
+        background: var(--bg-secondary);
+        border-radius: 16px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+        min-height: 200px;
+      }
+
+      .typing-area {
+        position: relative;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 1.5rem;
+        line-height: 2;
+        user-select: none;
+      }
+
+      .text-display {
+        color: var(--text-tertiary);
+        letter-spacing: 0.05em;
+        word-wrap: break-word;
+      }
+
+      .char {
+        position: relative;
+        transition: color 0.1s ease;
+      }
+
+      .char.correct {
+        color: var(--correct);
+      }
+
+      .char.incorrect {
+        color: var(--incorrect);
+        text-decoration: underline;
+        text-decoration-color: var(--incorrect);
+      }
+
+      .char.current {
+        color: var(--text-secondary);
+      }
+
+      .cursor {
+        position: absolute;
+        width: 2px;
+        height: 1.8rem;
+        background: var(--cursor);
+        animation: blink 1s infinite;
+        transition: left 0.05s ease, top 0.05s ease;
+      }
+
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .typing-input {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        cursor: default;
+      }
+
+      .focus-warning {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-tertiary);
+        background: var(--bg-tertiary);
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        pointer-events: none;
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      .typing-container.blur .focus-warning {
+        opacity: 1;
+      }
+
+      .typing-container.blur .text-display {
+        filter: blur(5px);
+      }
+
+      /* Results Modal */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      .modal-overlay.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .results-modal {
+        background: var(--bg-secondary);
+        border-radius: 20px;
+        padding: 2.5rem;
+        max-width: 600px;
+        width: 90%;
+        transform: scale(0.9);
+        transition: var(--transition);
+      }
+
+      .modal-overlay.show .results-modal {
+        transform: scale(1);
+      }
+
+      .results-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .results-header h2 {
+        font-size: 1.75rem;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .results-header p {
+        color: var(--text-tertiary);
+      }
+
+      .results-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .result-stat {
+        background: var(--bg-tertiary);
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-align: center;
+      }
+
+      .result-stat.main {
+        grid-column: span 2;
+      }
+
+      .result-stat-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .result-stat.main .result-stat-value {
+        font-size: 4rem;
+      }
+
+      .result-stat-label {
+        color: var(--text-tertiary);
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 0.5rem;
+      }
+
+      .results-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .btn {
+        padding: 0.875rem 2rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: var(--bg-primary);
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: var(--bg-tertiary);
+        color: var(--text-secondary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--bg-primary);
+      }
+
+      /* Keyboard Visualization */
+      .keyboard-container {
+        margin-top: 2rem;
+      }
+
+      .keyboard {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        padding: 1.5rem;
+        background: var(--bg-secondary);
+        border-radius: 16px;
+      }
+
+      .keyboard-row {
+        display: flex;
+        gap: 0.4rem;
+      }
+
+      .key {
+        min-width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--bg-tertiary);
+        border-radius: 8px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.875rem;
+        color: var(--text-tertiary);
+        transition: var(--transition);
+        text-transform: uppercase;
+      }
+
+      .key.pressed {
+        background: var(--accent);
+        color: var(--bg-primary);
+        transform: scale(0.95);
+      }
+
+      .key.space {
+        min-width: 300px;
+      }
+
+      .key.shift,
+      .key.enter {
+        min-width: 90px;
+      }
+
+      .key.backspace {
+        min-width: 80px;
+      }
+
+      .key.tab,
+      .key.caps {
+        min-width: 70px;
+      }
+
+      /* Settings Panel */
+      .settings-panel {
+        position: fixed;
+        top: 0;
+        right: -400px;
+        width: 400px;
+        height: 100%;
+        background: var(--bg-secondary);
+        z-index: 200;
+        transition: var(--transition);
+        overflow-y: auto;
+        padding: 2rem;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .settings-panel.open {
+        right: 0;
+      }
+
+      .settings-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .settings-header h2 {
+        color: var(--text-primary);
+      }
+
+      .close-settings {
+        background: none;
+        border: none;
+        color: var(--text-tertiary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .close-settings:hover {
+        color: var(--text-primary);
+      }
+
+      .settings-group {
+        margin-bottom: 2rem;
+      }
+
+      .settings-group h3 {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+      }
+
+      .theme-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .theme-option {
+        padding: 0.75rem;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .theme-option:hover {
+        border-color: var(--text-tertiary);
+      }
+
+      .theme-option.active {
+        border-color: var(--accent);
+      }
+
+      .theme-preview {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        overflow: hidden;
+      }
+
+      .theme-preview span {
+        flex: 1;
+      }
+
+      .theme-option-name {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+      }
+
+      .setting-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background: var(--bg-tertiary);
+        border-radius: 8px;
+        margin-bottom: 0.75rem;
+      }
+
+      .setting-item label {
+        color: var(--text-secondary);
+      }
+
+      .toggle {
+        position: relative;
+        width: 50px;
+        height: 26px;
+      }
+
+      .toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--bg-primary);
+        transition: var(--transition);
+        border-radius: 26px;
+      }
+
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 3px;
+        bottom: 3px;
+        background: var(--text-tertiary);
+        transition: var(--transition);
+        border-radius: 50%;
+      }
+
+      .toggle input:checked + .toggle-slider {
+        background: var(--accent);
+      }
+
+      .toggle input:checked + .toggle-slider:before {
+        transform: translateX(24px);
+        background: var(--bg-primary);
+      }
+
+      /* Leaderboard */
+      .leaderboard-section {
+        display: none;
+      }
+
+      .leaderboard-section.active {
+        display: block;
+      }
+
+      .leaderboard-table {
+        width: 100%;
+        background: var(--bg-secondary);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .leaderboard-table table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .leaderboard-table th,
+      .leaderboard-table td {
+        padding: 1rem 1.5rem;
+        text-align: left;
+      }
+
+      .leaderboard-table th {
+        background: var(--bg-tertiary);
+        color: var(--text-primary);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+      }
+
+      .leaderboard-table tr:not(:last-child) td {
+        border-bottom: 1px solid var(--bg-tertiary);
+      }
+
+      .leaderboard-table td {
+        color: var(--text-secondary);
+      }
+
+      .rank-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 0.875rem;
+      }
+
+      .rank-1 {
+        background: linear-gradient(135deg, #ffd700, #ffb700);
+        color: #1a1a2e;
+      }
+      .rank-2 {
+        background: linear-gradient(135deg, #c0c0c0, #a8a8a8);
+        color: #1a1a2e;
+      }
+      .rank-3 {
+        background: linear-gradient(135deg, #cd7f32, #b8722f);
+        color: #1a1a2e;
+      }
+
+      /* Profile Section */
+      .profile-section {
+        display: none;
+      }
+
+      .profile-section.active {
+        display: block;
+      }
+
+      .profile-card {
+        background: var(--bg-secondary);
+        border-radius: 16px;
+        padding: 2rem;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .profile-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: var(--bg-primary);
+      }
+
+      .profile-info h2 {
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .profile-info p {
+        color: var(--text-tertiary);
+      }
+
+      .profile-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+
+      .profile-stat {
+        background: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-align: center;
+      }
+
+      .profile-stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .profile-stat-label {
+        color: var(--text-tertiary);
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+      }
+
+      /* History Chart */
+      .history-section {
+        background: var(--bg-secondary);
+        border-radius: 16px;
+        padding: 2rem;
+        margin-top: 2rem;
+      }
+
+      .history-section h3 {
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .chart-container {
+        height: 200px;
+        display: flex;
+        align-items: flex-end;
+        gap: 4px;
+        padding: 1rem 0;
+      }
+
+      .chart-bar {
+        flex: 1;
+        background: var(--accent);
+        border-radius: 4px 4px 0 0;
+        transition: var(--transition);
+        position: relative;
+        min-width: 20px;
+      }
+
+      .chart-bar:hover {
+        opacity: 0.8;
+      }
+
+      .chart-bar .tooltip {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--bg-primary);
+        padding: 0.5rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      .chart-bar:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Typing Test Section */
+      .typing-section {
+        display: block;
+      }
+
+      .typing-section.hidden {
+        display: none;
+      }
+
+      /* Quotes/Custom Text */
+      .custom-text-modal {
+        display: none;
+      }
+
+      .custom-text-modal.show {
+        display: flex;
+      }
+
+      .custom-text-content {
+        background: var(--bg-secondary);
+        border-radius: 16px;
+        padding: 2rem;
+        max-width: 600px;
+        width: 90%;
+      }
+
+      .custom-text-content h3 {
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .custom-text-content textarea {
+        width: 100%;
+        height: 200px;
+        background: var(--bg-tertiary);
+        border: none;
+        border-radius: 8px;
+        padding: 1rem;
+        color: var(--text-secondary);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 1rem;
+        resize: vertical;
+        margin-bottom: 1rem;
+      }
+
+      .custom-text-content textarea:focus {
+        outline: 2px solid var(--accent);
+      }
+
+      /* Progress Bar */
+      .progress-bar {
+        height: 4px;
+        background: var(--bg-tertiary);
+        border-radius: 2px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+      }
+
+      .progress-bar-fill {
+        height: 100%;
+        background: var(--accent);
+        width: 0%;
+        transition: width 0.3s ease;
+      }
+
+      /* Capslock Warning */
+      .capslock-warning {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--incorrect);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      .capslock-warning.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header {
+          padding: 1rem;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav {
+          gap: 0.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .nav-item {
+          padding: 0.5rem;
+          font-size: 0.875rem;
+        }
+
+        .mode-selection {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .stats-display {
+          gap: 1.5rem;
+        }
+
+        .stat-value {
+          font-size: 2rem;
+        }
+
+        .typing-area {
+          font-size: 1.25rem;
+        }
+
+        .keyboard {
+          display: none;
+        }
+
+        .settings-panel {
+          width: 100%;
+          right: -100%;
+        }
+
+        .profile-card {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .profile-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .results-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .result-stat.main {
+          grid-column: span 1;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-in {
+        animation: fadeIn 0.5s ease forwards;
+      }
+
+      /* Sound Wave Animation */
+      .sound-wave {
+        display: flex;
+        gap: 2px;
+        align-items: center;
+        height: 20px;
+      }
+
+      .sound-wave span {
+        width: 3px;
+        background: var(--accent);
+        animation: wave 0.5s infinite ease-in-out;
+      }
+
+      .sound-wave span:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .sound-wave span:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .sound-wave span:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+
+      @keyframes wave {
+        0%,
+        100% {
+          height: 5px;
+        }
+        50% {
+          height: 20px;
+        }
+      }
+
+      /* Streak Counter */
+      .streak-badge {
+        position: fixed;
+        top: 100px;
+        right: 2rem;
+        background: var(--bg-secondary);
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .streak-badge i {
+        color: #ff9500;
+        font-size: 1.5rem;
+      }
+
+      .streak-count {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .streak-label {
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo" onclick="resetTest()">
+        <i class="fas fa-keyboard"></i>
+        <span>TypeMaster Pro</span>
+      </div>
+      <nav class="nav">
+        <div
+          class="nav-item active"
+          data-page="typing"
+          onclick="showPage('typing')"
+        >
+          <i class="fas fa-keyboard"></i>
+          <span>Type</span>
+        </div>
+        <div
+          class="nav-item"
+          data-page="leaderboard"
+          onclick="showPage('leaderboard')"
+        >
+          <i class="fas fa-trophy"></i>
+          <span>Leaderboard</span>
+        </div>
+        <div class="nav-item" data-page="profile" onclick="showPage('profile')">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </div>
+        <div class="nav-item" onclick="toggleSettings()">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+      <!-- Typing Section -->
+      <section class="typing-section" id="typingSection">
+        <!-- Mode Selection -->
+        <div class="mode-selection">
+          <div class="mode-group">
+            <span class="mode-group-label">mode</span>
+            <button
+              class="mode-btn active"
+              data-mode="time"
+              onclick="setMode('time')"
+            >
+              <i class="fas fa-clock"></i> time
+            </button>
+            <button
+              class="mode-btn"
+              data-mode="words"
+              onclick="setMode('words')"
+            >
+              <i class="fas fa-font"></i> words
+            </button>
+            <button
+              class="mode-btn"
+              data-mode="quote"
+              onclick="setMode('quote')"
+            >
+              <i class="fas fa-quote-left"></i> quote
+            </button>
+            <button
+              class="mode-btn"
+              data-mode="custom"
+              onclick="setMode('custom')"
+            >
+              <i class="fas fa-pen"></i> custom
+            </button>
+          </div>
+
+          <div class="mode-group" id="timeOptions">
+            <span class="mode-group-label">time</span>
+            <button class="mode-btn" data-time="15" onclick="setTime(15)">
+              15
+            </button>
+            <button
+              class="mode-btn active"
+              data-time="30"
+              onclick="setTime(30)"
+            >
+              30
+            </button>
+            <button class="mode-btn" data-time="60" onclick="setTime(60)">
+              60
+            </button>
+            <button class="mode-btn" data-time="120" onclick="setTime(120)">
+              120
+            </button>
+          </div>
+
+          <div class="mode-group hidden" id="wordOptions">
+            <span class="mode-group-label">words</span>
+            <button class="mode-btn" data-words="10" onclick="setWords(10)">
+              10
+            </button>
+            <button
+              class="mode-btn active"
+              data-words="25"
+              onclick="setWords(25)"
+            >
+              25
+            </button>
+            <button class="mode-btn" data-words="50" onclick="setWords(50)">
+              50
+            </button>
+            <button class="mode-btn" data-words="100" onclick="setWords(100)">
+              100
+            </button>
+          </div>
+        </div>
+
+        <!-- Stats Display -->
+        <div class="stats-display">
+          <div class="stat-item">
+            <div class="stat-value" id="wpmDisplay">0</div>
+            <div class="stat-label">WPM</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="accuracyDisplay">100</div>
+            <div class="stat-label">Accuracy %</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="timeDisplay">30</div>
+            <div class="stat-label" id="timeLabel">Time</div>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+          <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+
+        <!-- Typing Container -->
+        <div class="typing-container" id="typingContainer">
+          <div class="typing-area" id="typingArea">
+            <div class="text-display" id="textDisplay"></div>
+            <div class="cursor" id="cursor"></div>
+          </div>
+          <input
+            type="text"
+            class="typing-input"
+            id="typingInput"
+            autocomplete="off"
+            autocapitalize="off"
+            autocorrect="off"
+          />
+          <div class="focus-warning">
+            <i class="fas fa-mouse-pointer"></i>
+            <span>Click here or press any key to focus</span>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+          "
+        >
+          <button class="btn btn-secondary" onclick="resetTest()">
+            <i class="fas fa-redo"></i> Restart
+          </button>
+          <button class="btn btn-secondary" onclick="newTest()">
+            <i class="fas fa-random"></i> New Words
+          </button>
+        </div>
+
+        <!-- Keyboard Visualization -->
+        <div class="keyboard-container" id="keyboardContainer">
+          <div class="keyboard" id="keyboard">
+            <div class="keyboard-row">
+              <div class="key" data-key="`">`</div>
+              <div class="key" data-key="1">1</div>
+              <div class="key" data-key="2">2</div>
+              <div class="key" data-key="3">3</div>
+              <div class="key" data-key="4">4</div>
+              <div class="key" data-key="5">5</div>
+              <div class="key" data-key="6">6</div>
+              <div class="key" data-key="7">7</div>
+              <div class="key" data-key="8">8</div>
+              <div class="key" data-key="9">9</div>
+              <div class="key" data-key="0">0</div>
+              <div class="key" data-key="-">-</div>
+              <div class="key" data-key="=">=</div>
+              <div class="key backspace" data-key="Backspace">⌫</div>
+            </div>
+            <div class="keyboard-row">
+              <div class="key tab" data-key="Tab">Tab</div>
+              <div class="key" data-key="q">Q</div>
+              <div class="key" data-key="w">W</div>
+              <div class="key" data-key="e">E</div>
+              <div class="key" data-key="r">R</div>
+              <div class="key" data-key="t">T</div>
+              <div class="key" data-key="y">Y</div>
+              <div class="key" data-key="u">U</div>
+              <div class="key" data-key="i">I</div>
+              <div class="key" data-key="o">O</div>
+              <div class="key" data-key="p">P</div>
+              <div class="key" data-key="[">[</div>
+              <div class="key" data-key="]">]</div>
+              <div class="key" data-key="\">\</div>
+            </div>
+            <div class="keyboard-row">
+              <div class="key caps" data-key="CapsLock">Caps</div>
+              <div class="key" data-key="a">A</div>
+              <div class="key" data-key="s">S</div>
+              <div class="key" data-key="d">D</div>
+              <div class="key" data-key="f">F</div>
+              <div class="key" data-key="g">G</div>
+              <div class="key" data-key="h">H</div>
+              <div class="key" data-key="j">J</div>
+              <div class="key" data-key="k">K</div>
+              <div class="key" data-key="l">L</div>
+              <div class="key" data-key=";">;</div>
+              <div class="key" data-key="'">'</div>
+              <div class="key enter" data-key="Enter">Enter</div>
+            </div>
+            <div class="keyboard-row">
+              <div class="key shift" data-key="Shift">Shift</div>
+              <div class="key" data-key="z">Z</div>
+              <div class="key" data-key="x">X</div>
+              <div class="key" data-key="c">C</div>
+              <div class="key" data-key="v">V</div>
+              <div class="key" data-key="b">B</div>
+              <div class="key" data-key="n">N</div>
+              <div class="key" data-key="m">M</div>
+              <div class="key" data-key=",">,</div>
+              <div class="key" data-key=".">.</div>
+              <div class="key" data-key="/">/</div>
+              <div class="key shift" data-key="Shift">Shift</div>
+            </div>
+            <div class="keyboard-row">
+              <div class="key space" data-key=" ">Space</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leaderboard Section -->
+      <section class="leaderboard-section" id="leaderboardSection">
+        <h2
+          style="
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+          "
+        >
+          <i class="fas fa-trophy"></i> Leaderboard
+        </h2>
+        <div class="leaderboard-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>WPM</th>
+                <th>Accuracy</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardBody">
+              <!-- Populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Profile Section -->
+      <section class="profile-section" id="profileSection">
+        <div class="profile-card">
+          <div class="profile-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="profile-info">
+            <h2 id="profileName">Guest Typist</h2>
+            <p>Member since <span id="memberSince">today</span></p>
+          </div>
+        </div>
+
+        <div class="profile-stats">
+          <div class="profile-stat">
+            <div class="profile-stat-value" id="avgWpm">0</div>
+            <div class="profile-stat-label">Avg WPM</div>
+          </div>
+          <div class="profile-stat">
+            <div class="profile-stat-value" id="bestWpm">0</div>
+            <div class="profile-stat-label">Best WPM</div>
+          </div>
+          <div class="profile-stat">
+            <div class="profile-stat-value" id="avgAccuracy">0%</div>
+            <div class="profile-stat-label">Avg Accuracy</div>
+          </div>
+          <div class="profile-stat">
+            <div class="profile-stat-value" id="testsCompleted">0</div>
+            <div class="profile-stat-label">Tests</div>
+          </div>
+        </div>
+
+        <div class="history-section">
+          <h3><i class="fas fa-chart-line"></i> Recent Performance</h3>
+          <div class="chart-container" id="historyChart">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settingsPanel">
+      <div class="settings-header">
+        <h2><i class="fas fa-cog"></i> Settings</h2>
+        <button class="close-settings" onclick="toggleSettings()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="settings-group">
+        <h3>Theme</h3>
+        <div class="theme-options">
+          <div
+            class="theme-option active"
+            data-theme="default"
+            onclick="setTheme('default')"
+          >
+            <div class="theme-preview">
+              <span style="background: #1a1a2e"></span>
+              <span style="background: #e94560"></span>
+            </div>
+            <span class="theme-option-name">Crimson</span>
+          </div>
+          <div
+            class="theme-option"
+            data-theme="ocean"
+            onclick="setTheme('ocean')"
+          >
+            <div class="theme-preview">
+              <span style="background: #0a192f"></span>
+              <span style="background: #64ffda"></span>
+            </div>
+            <span class="theme-option-name">Ocean</span>
+          </div>
+          <div
+            class="theme-option"
+            data-theme="forest"
+            onclick="setTheme('forest')"
+          >
+            <div class="theme-preview">
+              <span style="background: #1a1f16"></span>
+              <span style="background: #a8e6cf"></span>
+            </div>
+            <span class="theme-option-name">Forest</span>
+          </div>
+          <div
+            class="theme-option"
+            data-theme="sunset"
+            onclick="setTheme('sunset')"
+          >
+            <div class="theme-preview">
+              <span style="background: #1f1135"></span>
+              <span style="background: #ff9a9e"></span>
+            </div>
+            <span class="theme-option-name">Sunset</span>
+          </div>
+          <div
+            class="theme-option"
+            data-theme="light"
+            onclick="setTheme('light')"
+          >
+            <div class="theme-preview">
+              <span style="background: #f5f5f5"></span>
+              <span style="background: #2563eb"></span>
+            </div>
+            <span class="theme-option-name">Light</span>
+          </div>
+          <div
+            class="theme-option"
+            data-theme="coffee"
+            onclick="setTheme('coffee')"
+          >
+            <div class="theme-preview">
+              <span style="background: #1b1510"></span>
+              <span style="background: #d4a574"></span>
+            </div>
+            <span class="theme-option-name">Coffee</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>Behavior</h3>
+        <div class="setting-item">
+          <label>Sound Effects</label>
+          <label class="toggle">
+            <input type="checkbox" id="soundToggle" onchange="toggleSound()" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="setting-item">
+          <label>Show Keyboard</label>
+          <label class="toggle">
+            <input
+              type="checkbox"
+              id="keyboardToggle"
+              checked
+              onchange="toggleKeyboard()"
+            />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="setting-item">
+          <label>Smooth Cursor</label>
+          <label class="toggle">
+            <input
+              type="checkbox"
+              id="smoothCursorToggle"
+              checked
+              onchange="toggleSmoothCursor()"
+            />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="setting-item">
+          <label>Live WPM</label>
+          <label class="toggle">
+            <input
+              type="checkbox"
+              id="liveWpmToggle"
+              checked
+              onchange="toggleLiveWpm()"
+            />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>Difficulty</h3>
+        <div class="setting-item">
+          <label>Include Punctuation</label>
+          <label class="toggle">
+            <input
+              type="checkbox"
+              id="punctuationToggle"
+              onchange="togglePunctuation()"
+            />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="setting-item">
+          <label>Include Numbers</label>
+          <label class="toggle">
+            <input
+              type="checkbox"
+              id="numbersToggle"
+              onchange="toggleNumbers()"
+            />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div class="modal-overlay" id="resultsModal">
+      <div class="results-modal">
+        <div class="results-header">
+          <h2><i class="fas fa-flag-checkered"></i> Test Complete!</h2>
+          <p>Great job! Here are your results:</p>
+        </div>
+        <div class="results-stats">
+          <div class="result-stat main">
+            <div class="result-stat-value" id="finalWpm">0</div>
+            <div class="result-stat-label">Words Per Minute</div>
+          </div>
+          <div class="result-stat">
+            <div class="result-stat-value" id="finalAccuracy">0%</div>
+            <div class="result-stat-label">Accuracy</div>
+          </div>
+          <div class="result-stat">
+            <div class="result-stat-value" id="finalRaw">0</div>
+            <div class="result-stat-label">Raw WPM</div>
+          </div>
+          <div class="result-stat">
+            <div class="result-stat-value" id="finalChars">0/0</div>
+            <div class="result-stat-label">Characters (Correct/Incorrect)</div>
+          </div>
+          <div class="result-stat">
+            <div class="result-stat-value" id="finalTime">0s</div>
+            <div class="result-stat-label">Time</div>
+          </div>
+        </div>
+        <div class="results-actions">
+          <button class="btn btn-primary" onclick="resetTest()">
+            <i class="fas fa-redo"></i> Try Again
+          </button>
+          <button class="btn btn-secondary" onclick="newTest()">
+            <i class="fas fa-random"></i> New Test
+          </button>
+          <button class="btn btn-secondary" onclick="closeResults()">
+            <i class="fas fa-times"></i> Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Text Modal -->
+    <div class="modal-overlay custom-text-modal" id="customTextModal">
+      <div class="custom-text-content">
+        <h3><i class="fas fa-pen"></i> Custom Text</h3>
+        <textarea
+          id="customTextInput"
+          placeholder="Enter your custom text here..."
+        ></textarea>
+        <div class="results-actions">
+          <button class="btn btn-primary" onclick="applyCustomText()">
+            <i class="fas fa-check"></i> Apply
+          </button>
+          <button class="btn btn-secondary" onclick="closeCustomText()">
+            <i class="fas fa-times"></i> Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Capslock Warning -->
+    <div class="capslock-warning" id="capslockWarning">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>Caps Lock is ON</span>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="keySound" preload="auto">
+      <source
+        src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2telegsdf8markup"
+        type="audio/wav"
+      />
+    </audio>
+
+    <script>
+      // Word lists
+      const commonWords = [
+        "the",
+        "be",
+        "to",
+        "of",
+        "and",
+        "a",
+        "in",
+        "that",
+        "have",
+        "I",
+        "it",
+        "for",
+        "not",
+        "on",
+        "with",
+        "he",
+        "as",
+        "you",
+        "do",
+        "at",
+        "this",
+        "but",
+        "his",
+        "by",
+        "from",
+        "they",
+        "we",
+        "say",
+        "her",
+        "she",
+        "or",
+        "an",
+        "will",
+        "my",
+        "one",
+        "all",
+        "would",
+        "there",
+        "their",
+        "what",
+        "so",
+        "up",
+        "out",
+        "if",
+        "about",
+        "who",
+        "get",
+        "which",
+        "go",
+        "me",
+        "when",
+        "make",
+        "can",
+        "like",
+        "time",
+        "no",
+        "just",
+        "him",
+        "know",
+        "take",
+        "people",
+        "into",
+        "year",
+        "your",
+        "good",
+        "some",
+        "could",
+        "them",
+        "see",
+        "other",
+        "than",
+        "then",
+        "now",
+        "look",
+        "only",
+        "come",
+        "its",
+        "over",
+        "think",
+        "also",
+        "back",
+        "after",
+        "use",
+        "two",
+        "how",
+        "our",
+        "work",
+        "first",
+        "well",
+        "way",
+        "even",
+        "new",
+        "want",
+        "because",
+        "any",
+        "these",
+        "give",
+        "day",
+        "most",
+        "us",
+        "is",
+        "was",
+        "are",
+        "been",
+        "has",
+        "had",
+        "did",
+        "does",
+        "may",
+        "might",
+        "should",
+        "could",
+        "would",
+        "must",
+        "shall",
+        "being",
+        "having",
+        "doing",
+        "made",
+        "said",
+      ];
+
+      const quotes = [
+        "The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle.",
+        "Innovation distinguishes between a leader and a follower. Stay hungry, stay foolish.",
+        "Life is what happens when you're busy making other plans. So make the most of every moment.",
+        "The future belongs to those who believe in the beauty of their dreams. Never stop dreaming.",
+        "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+        "In the middle of difficulty lies opportunity. Every challenge is a chance to grow.",
+        "The only impossible journey is the one you never begin. Take that first step today.",
+        "Believe you can and you're halfway there. Your mindset shapes your reality.",
+        "It does not matter how slowly you go as long as you do not stop. Progress is progress.",
+        "The best time to plant a tree was twenty years ago. The second best time is now.",
+      ];
+
+      // State
+      let state = {
+        mode: "time",
+        timeLimit: 30,
+        wordCount: 25,
+        text: "",
+        currentIndex: 0,
+        correctChars: 0,
+        incorrectChars: 0,
+        startTime: null,
+        timer: null,
+        isActive: false,
+        isComplete: false,
+        settings: {
+          sound: false,
+          keyboard: true,
+          smoothCursor: true,
+          liveWpm: true,
+          punctuation: false,
+          numbers: false,
+          theme: "default",
+        },
+        history: [],
+        wpmHistory: [],
+      };
+
+      // DOM Elements
+      const elements = {
+        typingInput: document.getElementById("typingInput"),
+        textDisplay: document.getElementById("textDisplay"),
+        cursor: document.getElementById("cursor"),
+        typingContainer: document.getElementById("typingContainer"),
+        wpmDisplay: document.getElementById("wpmDisplay"),
+        accuracyDisplay: document.getElementById("accuracyDisplay"),
+        timeDisplay: document.getElementById("timeDisplay"),
+        timeLabel: document.getElementById("timeLabel"),
+        progressBar: document.getElementById("progressBar"),
+        resultsModal: document.getElementById("resultsModal"),
+        keyboard: document.getElementById("keyboard"),
+        keyboardContainer: document.getElementById("keyboardContainer"),
+        settingsPanel: document.getElementById("settingsPanel"),
+        capslockWarning: document.getElementById("capslockWarning"),
+        leaderboardBody: document.getElementById("leaderboardBody"),
+        historyChart: document.getElementById("historyChart"),
+      };
+
+      // Initialize
+      function init() {
+        loadSettings();
+        generateText();
+        renderText();
+        setupEventListeners();
+        loadHistory();
+        updateProfile();
+        populateLeaderboard();
+      }
+
+      // Load settings from localStorage
+      function loadSettings() {
+        const saved = localStorage.getItem("typemasterSettings");
+        if (saved) {
+          state.settings = { ...state.settings, ...JSON.parse(saved) };
+          applySettings();
+        }
+      }
+
+      // Save settings to localStorage
+      function saveSettings() {
+        localStorage.setItem(
+          "typemasterSettings",
+          JSON.stringify(state.settings)
+        );
+      }
+
+      // Apply settings
+      function applySettings() {
+        // Theme
+        document.body.className =
+          state.settings.theme === "default"
+            ? ""
+            : `theme-${state.settings.theme}`;
+
+        // Update theme options
+        document.querySelectorAll(".theme-option").forEach((opt) => {
+          opt.classList.toggle(
+            "active",
+            opt.dataset.theme === state.settings.theme
+          );
+        });
+
+        // Toggles
+        document.getElementById("soundToggle").checked = state.settings.sound;
+        document.getElementById("keyboardToggle").checked =
+          state.settings.keyboard;
+        document.getElementById("smoothCursorToggle").checked =
+          state.settings.smoothCursor;
+        document.getElementById("liveWpmToggle").checked =
+          state.settings.liveWpm;
+        document.getElementById("punctuationToggle").checked =
+          state.settings.punctuation;
+        document.getElementById("numbersToggle").checked =
+          state.settings.numbers;
+
+        // Keyboard visibility
+        elements.keyboardContainer.style.display = state.settings.keyboard
+          ? "block"
+          : "none";
+
+        // Cursor animation
+        elements.cursor.style.transition = state.settings.smoothCursor
+          ? "left 0.05s ease, top 0.05s ease"
+          : "none";
+      }
+
+      // Generate text based on mode
+      function generateText() {
+        let words = [];
+
+        if (state.mode === "quote") {
+          state.text = quotes[Math.floor(Math.random() * quotes.length)];
+          return;
+        }
+
+        if (state.mode === "custom" && state.customText) {
+          state.text = state.customText;
+          return;
+        }
+
+        const wordList = [...commonWords];
+        const count = state.mode === "words" ? state.wordCount : 100;
+
+        for (let i = 0; i < count; i++) {
+          let word = wordList[Math.floor(Math.random() * wordList.length)];
+
+          if (state.settings.punctuation && Math.random() < 0.15) {
+            const punct = [",", ".", "!", "?", ";", ":"][
+              Math.floor(Math.random() * 6)
+            ];
+            word += punct;
+          }
+
+          if (state.settings.numbers && Math.random() < 0.1) {
+            word = Math.floor(Math.random() * 1000).toString();
+          }
+
+          words.push(word);
+        }
+
+        state.text = words.join(" ");
+      }
+
+      // Render text display
+      function renderText() {
+        let html = "";
+        for (let i = 0; i < state.text.length; i++) {
+          const char = state.text[i];
+          let className = "char";
+          if (i < state.currentIndex) {
+            className +=
+              state.typed && state.typed[i] === char
+                ? " correct"
+                : " incorrect";
+          } else if (i === state.currentIndex) {
+            className += " current";
+          }
+          html += `<span class="${className}" data-index="${i}">${
+            char === " " ? "&nbsp;" : char
+          }</span>`;
+        }
+        elements.textDisplay.innerHTML = html;
+        updateCursor();
+      }
+
+      // Update cursor position
+      function updateCursor() {
+        const currentChar = document.querySelector(
+          `.char[data-index="${state.currentIndex}"]`
+        );
+        if (currentChar) {
+          const rect = currentChar.getBoundingClientRect();
+          const containerRect = elements.textDisplay.getBoundingClientRect();
+          elements.cursor.style.left = `${rect.left - containerRect.left}px`;
+          elements.cursor.style.top = `${rect.top - containerRect.top}px`;
+        }
+      }
+
+      // Setup event listeners
+      function setupEventListeners() {
+        // Focus management
+        elements.typingContainer.addEventListener("click", () => {
+          elements.typingInput.focus();
+        });
+
+        elements.typingInput.addEventListener("focus", () => {
+          elements.typingContainer.classList.remove("blur");
+        });
+
+        elements.typingInput.addEventListener("blur", () => {
+          if (state.isActive && !state.isComplete) {
+            elements.typingContainer.classList.add("blur");
+          }
+        });
+
+        // Typing input
+        elements.typingInput.addEventListener("input", handleInput);
+        elements.typingInput.addEventListener("keydown", handleKeydown);
+
+        // Global keyboard
+        document.addEventListener("keydown", (e) => {
+          // Check for capslock
+          if (e.getModifierState && e.getModifierState("CapsLock")) {
+            elements.capslockWarning.classList.add("show");
+          } else {
+            elements.capslockWarning.classList.remove("show");
+          }
+
+          // Keyboard visualization
+          highlightKey(e.key);
+
+          // Focus input if typing
+          if (!e.ctrlKey && !e.altKey && !e.metaKey && e.key.length === 1) {
+            if (document.activeElement !== elements.typingInput) {
+              elements.typingInput.focus();
+            }
+          }
+
+          // Shortcuts
+          if (e.key === "Tab" && !e.shiftKey) {
+            e.preventDefault();
+            resetTest();
+          }
+
+          if (e.key === "Escape") {
+            closeResults();
+            closeCustomText();
+            if (elements.settingsPanel.classList.contains("open")) {
+              toggleSettings();
+            }
+          }
+        });
+
+        document.addEventListener("keyup", (e) => {
+          unhighlightKey(e.key);
+        });
+
+        // Prevent paste
+        elements.typingInput.addEventListener("paste", (e) => {
+          e.preventDefault();
+        });
+
+        // Window resize
+        window.addEventListener("resize", updateCursor);
+      }
+
+      // Handle input
+      function handleInput(e) {
+        const inputValue = e.target.value;
+
+        if (!state.isActive && !state.isComplete) {
+          startTest();
+        }
+
+        if (state.isComplete) return;
+
+        // Play sound
+        if (state.settings.sound) {
+          playKeySound();
+        }
+
+        // Process input
+        state.typed = inputValue;
+        state.currentIndex = inputValue.length;
+
+        // Count correct/incorrect
+        let correct = 0;
+        let incorrect = 0;
+        for (let i = 0; i < inputValue.length; i++) {
+          if (inputValue[i] === state.text[i]) {
+            correct++;
+          } else {
+            incorrect++;
+          }
+        }
+        state.correctChars = correct;
+        state.incorrectChars = incorrect;
+
+        // Update display
+        renderText();
+        updateStats();
+        updateProgress();
+
+        // Check completion
+        if (
+          state.mode === "words" ||
+          state.mode === "quote" ||
+          state.mode === "custom"
+        ) {
+          if (state.currentIndex >= state.text.length) {
+            endTest();
+          }
+        }
+      }
+
+      // Handle keydown
+      function handleKeydown(e) {
+        // Prevent backspace beyond start
+        if (e.key === "Backspace" && state.currentIndex === 0) {
+          e.preventDefault();
+        }
+      }
+
+      // Start test
+      function startTest() {
+        state.isActive = true;
+        state.startTime = Date.now();
+        state.wpmHistory = [];
+
+        if (state.mode === "time") {
+          state.timer = setInterval(() => {
+            const elapsed = Math.floor((Date.now() - state.startTime) / 1000);
+            const remaining = state.timeLimit - elapsed;
+
+            elements.timeDisplay.textContent = remaining;
+            updateProgress();
+
+            // Record WPM history
+            if (elapsed > 0 && elapsed % 1 === 0) {
+              state.wpmHistory.push(calculateWPM());
+            }
+
+            if (remaining <= 0) {
+              endTest();
+            }
+          }, 100);
+        } else {
+          state.timer = setInterval(() => {
+            const elapsed = Math.floor((Date.now() - state.startTime) / 1000);
+            elements.timeDisplay.textContent = elapsed;
+
+            if (elapsed > 0 && elapsed % 1 === 0) {
+              state.wpmHistory.push(calculateWPM());
+            }
+          }, 100);
+        }
+      }
+
+      // End test
+      function endTest() {
+        state.isActive = false;
+        state.isComplete = true;
+        clearInterval(state.timer);
+
+        const results = {
+          wpm: calculateWPM(),
+          rawWpm: calculateRawWPM(),
+          accuracy: calculateAccuracy(),
+          correctChars: state.correctChars,
+          incorrectChars: state.incorrectChars,
+          time: Math.floor((Date.now() - state.startTime) / 1000),
+          date: new Date().toLocaleDateString(),
+        };
+
+        // Save to history
+        saveResult(results);
+
+        // Show results
+        showResults(results);
+      }
+
+      // Calculate WPM
+      function calculateWPM() {
+        if (!state.startTime) return 0;
+        const timeElapsed = (Date.now() - state.startTime) / 1000 / 60;
+        if (timeElapsed === 0) return 0;
+        const wordsTyped = state.correctChars / 5;
+        return Math.round(wordsTyped / timeElapsed);
+      }
+
+      // Calculate Raw WPM
+      function calculateRawWPM() {
+        if (!state.startTime) return 0;
+        const timeElapsed = (Date.now() - state.startTime) / 1000 / 60;
+        if (timeElapsed === 0) return 0;
+        const wordsTyped = state.currentIndex / 5;
+        return Math.round(wordsTyped / timeElapsed);
+      }
+
+      // Calculate accuracy
+      function calculateAccuracy() {
+        if (state.currentIndex === 0) return 100;
+        return Math.round((state.correctChars / state.currentIndex) * 100);
+      }
+
+      // Update stats display
+      function updateStats() {
+        if (state.settings.liveWpm) {
+          elements.wpmDisplay.textContent = calculateWPM();
+        }
+        elements.accuracyDisplay.textContent = calculateAccuracy();
+      }
+
+      // Update progress bar
+      function updateProgress() {
+        let progress = 0;
+        if (state.mode === "time") {
+          const elapsed = (Date.now() - state.startTime) / 1000;
+          progress = (elapsed / state.timeLimit) * 100;
+        } else {
+          progress = (state.currentIndex / state.text.length) * 100;
+        }
+        elements.progressBar.style.width = `${Math.min(progress, 100)}%`;
+      }
+
+      // Show results
+      function showResults(results) {
+        document.getElementById("finalWpm").textContent = results.wpm;
+        document.getElementById("finalAccuracy").textContent =
+          results.accuracy + "%";
+        document.getElementById("finalRaw").textContent = results.rawWpm;
+        document.getElementById(
+          "finalChars"
+        ).textContent = `${results.correctChars}/${results.incorrectChars}`;
+        document.getElementById("finalTime").textContent = results.time + "s";
+
+        elements.resultsModal.classList.add("show");
+      }
+
+      // Close results
+      function closeResults() {
+        elements.resultsModal.classList.remove("show");
+      }
+
+      // Reset test
+      function resetTest() {
+        clearInterval(state.timer);
+        state.currentIndex = 0;
+        state.correctChars = 0;
+        state.incorrectChars = 0;
+        state.startTime = null;
+        state.isActive = false;
+        state.isComplete = false;
+        state.typed = "";
+        state.wpmHistory = [];
+
+        elements.typingInput.value = "";
+        elements.wpmDisplay.textContent = "0";
+        elements.accuracyDisplay.textContent = "100";
+        elements.timeDisplay.textContent =
+          state.mode === "time" ? state.timeLimit : "0";
+        elements.progressBar.style.width = "0%";
+        elements.typingContainer.classList.remove("blur");
+
+        renderText();
+        closeResults();
+        elements.typingInput.focus();
+      }
+
+      // New test
+      function newTest() {
+        generateText();
+        resetTest();
+      }
+
+      // Mode setters
+      function setMode(mode) {
+        state.mode = mode;
+        document.querySelectorAll("[data-mode]").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.mode === mode);
+        });
+
+        document
+          .getElementById("timeOptions")
+          .classList.toggle("hidden", mode !== "time");
+        document
+          .getElementById("wordOptions")
+          .classList.toggle("hidden", mode !== "words");
+
+        elements.timeLabel.textContent =
+          mode === "time" ? "Time" : mode === "words" ? "Words" : "Time";
+
+        if (mode === "custom") {
+          showCustomTextModal();
+        } else {
+          newTest();
+        }
+      }
+
+      function setTime(time) {
+        state.timeLimit = time;
+        document.querySelectorAll("[data-time]").forEach((btn) => {
+          btn.classList.toggle("active", parseInt(btn.dataset.time) === time);
+        });
+        resetTest();
+      }
+
+      function setWords(count) {
+        state.wordCount = count;
+        document.querySelectorAll("[data-words]").forEach((btn) => {
+          btn.classList.toggle("active", parseInt(btn.dataset.words) === count);
+        });
+        newTest();
+      }
+
+      // Theme setter
+      function setTheme(theme) {
+        state.settings.theme = theme;
+        document.body.className = theme === "default" ? "" : `theme-${theme}`;
+        document.querySelectorAll(".theme-option").forEach((opt) => {
+          opt.classList.toggle("active", opt.dataset.theme === theme);
+        });
+        saveSettings();
+      }
+
+      // Toggle functions
+      function toggleSettings() {
+        elements.settingsPanel.classList.toggle("open");
+      }
+
+      function toggleSound() {
+        state.settings.sound = document.getElementById("soundToggle").checked;
+        saveSettings();
+      }
+
+      function toggleKeyboard() {
+        state.settings.keyboard =
+          document.getElementById("keyboardToggle").checked;
+        elements.keyboardContainer.style.display = state.settings.keyboard
+          ? "block"
+          : "none";
+        saveSettings();
+      }
+
+      function toggleSmoothCursor() {
+        state.settings.smoothCursor =
+          document.getElementById("smoothCursorToggle").checked;
+        elements.cursor.style.transition = state.settings.smoothCursor
+          ? "left 0.05s ease, top 0.05s ease"
+          : "none";
+        saveSettings();
+      }
+
+      function toggleLiveWpm() {
+        state.settings.liveWpm =
+          document.getElementById("liveWpmToggle").checked;
+        saveSettings();
+      }
+
+      function togglePunctuation() {
+        state.settings.punctuation =
+          document.getElementById("punctuationToggle").checked;
+        saveSettings();
+        newTest();
+      }
+
+      function toggleNumbers() {
+        state.settings.numbers =
+          document.getElementById("numbersToggle").checked;
+        saveSettings();
+        newTest();
+      }
+
+      // Keyboard visualization
+      function highlightKey(key) {
+        const keyElement =
+          document.querySelector(`.key[data-key="${key.toLowerCase()}"]`) ||
+          document.querySelector(`.key[data-key="${key}"]`);
+        if (keyElement) {
+          keyElement.classList.add("pressed");
+        }
+      }
+
+      function unhighlightKey(key) {
+        const keyElement =
+          document.querySelector(`.key[data-key="${key.toLowerCase()}"]`) ||
+          document.querySelector(`.key[data-key="${key}"]`);
+        if (keyElement) {
+          keyElement.classList.remove("pressed");
+        }
+      }
+
+      // Sound
+      function playKeySound() {
+        // Create oscillator for key sound
+        const audioContext = new (window.AudioContext ||
+          window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        oscillator.frequency.value = 800 + Math.random() * 200;
+        oscillator.type = "sine";
+        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(
+          0.01,
+          audioContext.currentTime + 0.05
+        );
+
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.05);
+      }
+
+      // Custom text
+      function showCustomTextModal() {
+        document.getElementById("customTextModal").classList.add("show");
+      }
+
+      function closeCustomText() {
+        document.getElementById("customTextModal").classList.remove("show");
+      }
+
+      function applyCustomText() {
+        const text = document.getElementById("customTextInput").value.trim();
+        if (text) {
+          state.customText = text;
+          state.text = text;
+          closeCustomText();
+          resetTest();
+        }
+      }
+
+      // Page navigation
+      function showPage(page) {
+        document.querySelectorAll(".nav-item").forEach((item) => {
+          item.classList.toggle("active", item.dataset.page === page);
+        });
+
+        document
+          .getElementById("typingSection")
+          .classList.toggle("hidden", page !== "typing");
+        document
+          .getElementById("leaderboardSection")
+          .classList.toggle("active", page === "leaderboard");
+        document
+          .getElementById("profileSection")
+          .classList.toggle("active", page === "profile");
+
+        if (page === "profile") {
+          updateProfile();
+          renderHistoryChart();
+        }
+      }
+
+      // History management
+      function saveResult(result) {
+        let history = JSON.parse(
+          localStorage.getItem("typemasterHistory") || "[]"
+        );
+        history.unshift(result);
+        history = history.slice(0, 50); // Keep last 50 results
+        localStorage.setItem("typemasterHistory", JSON.stringify(history));
+        state.history = history;
+      }
+
+      function loadHistory() {
+        state.history = JSON.parse(
+          localStorage.getItem("typemasterHistory") || "[]"
+        );
+      }
+
+      function updateProfile() {
+        if (state.history.length === 0) {
+          document.getElementById("avgWpm").textContent = "0";
+          document.getElementById("bestWpm").textContent = "0";
+          document.getElementById("avgAccuracy").textContent = "0%";
+          document.getElementById("testsCompleted").textContent = "0";
+          return;
+        }
+
+        const avgWpm = Math.round(
+          state.history.reduce((sum, r) => sum + r.wpm, 0) /
+            state.history.length
+        );
+        const bestWpm = Math.max(...state.history.map((r) => r.wpm));
+        const avgAccuracy = Math.round(
+          state.history.reduce((sum, r) => sum + r.accuracy, 0) /
+            state.history.length
+        );
+
+        document.getElementById("avgWpm").textContent = avgWpm;
+        document.getElementById("bestWpm").textContent = bestWpm;
+        document.getElementById("avgAccuracy").textContent = avgAccuracy + "%";
+        document.getElementById("testsCompleted").textContent =
+          state.history.length;
+      }
+
+      function renderHistoryChart() {
+        const container = elements.historyChart;
+        container.innerHTML = "";
+
+        const last10 = state.history.slice(0, 10).reverse();
+        if (last10.length === 0) {
+          container.innerHTML =
+            '<p style="color: var(--text-tertiary); text-align: center;">No history yet. Complete some tests!</p>';
+          return;
+        }
+
+        const maxWpm = Math.max(...last10.map((r) => r.wpm), 1);
+
+        last10.forEach((result, index) => {
+          const height = (result.wpm / maxWpm) * 100;
+          const bar = document.createElement("div");
+          bar.className = "chart-bar";
+          bar.style.height = `${height}%`;
+          bar.innerHTML = `<div class="tooltip">${result.wpm} WPM</div>`;
+          container.appendChild(bar);
+        });
+      }
+
+      // Leaderboard
+      function populateLeaderboard() {
+        const leaderboard = [...state.history]
+          .sort((a, b) => b.wpm - a.wpm)
+          .slice(0, 10);
+
+        const tbody = elements.leaderboardBody;
+        tbody.innerHTML = "";
+
+        if (leaderboard.length === 0) {
+          tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: var(--text-tertiary);">
+                            No scores yet. Be the first!
+                        </td>
+                    </tr>
+                `;
+          return;
+        }
+
+        leaderboard.forEach((result, index) => {
+          const rank = index + 1;
+          let rankClass = "";
+          if (rank === 1) rankClass = "rank-1";
+          else if (rank === 2) rankClass = "rank-2";
+          else if (rank === 3) rankClass = "rank-3";
+
+          const row = document.createElement("tr");
+          row.innerHTML = `
+                    <td>
+                        <span class="rank-badge ${rankClass}">${rank}</span>
+                    </td>
+                    <td>You</td>
+                    <td style="color: var(--text-primary); font-weight: 600;">${result.wpm} WPM</td>
+                    <td>${result.accuracy}%</td>
+                    <td style="color: var(--text-tertiary);">${result.date}</td>
+                `;
+          tbody.appendChild(row);
+        });
+      }
+
+      // Initialize on load
+      document.addEventListener("DOMContentLoaded", init);
+
+      // Focus input on page load
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          elements.typingInput.focus();
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

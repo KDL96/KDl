@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Jutta Pasal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-color: #ff6b35;
+        --primary-dark: #e55a2b;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8f9fa;
+        --text-primary: #2d3436;
+        --text-secondary: #636e72;
+        --text-muted: #b2bec3;
+        --border-color: #dee2e6;
+        --success-color: #00b894;
+        --error-color: #e74c3c;
+      }
+
+      [data-theme="dark"] {
+        --bg-primary: #1a1a2e;
+        --bg-secondary: #16213e;
+        --text-primary: #edf2f7;
+        --text-secondary: #a0aec0;
+        --text-muted: #718096;
+        --border-color: #2d3748;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        min-height: 100vh;
+      }
+
+      /* Header */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background: var(--bg-primary);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: var(--text-primary);
+      }
+
+      .nav-logo .accent {
+        color: var(--primary-color);
+      }
+
+      .theme-toggle {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg-secondary);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+      }
+
+      .theme-toggle:hover {
+        color: var(--primary-color);
+        transform: rotate(15deg);
+      }
+
+      /* Auth Section */
+      .auth-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        padding-top: calc(70px + 2rem);
+      }
+
+      .auth-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 1000px;
+        width: 100%;
+        background: var(--bg-primary);
+        border-radius: 24px;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+      }
+
+      /* Banner */
+      .auth-banner {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--primary-dark) 100%
+        );
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .auth-banner::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+      }
+
+      .auth-banner::after {
+        content: "";
+        position: absolute;
+        bottom: -30%;
+        left: -30%;
+        width: 80%;
+        height: 80%;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+      }
+
+      .auth-banner > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .auth-banner h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .auth-banner p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+        line-height: 1.7;
+      }
+
+      .auth-banner-image {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .auth-banner-image img {
+        max-width: 300px;
+        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-5deg);
+        }
+        50% {
+          transform: translateY(-15px) rotate(-5deg);
+        }
+      }
+
+      /* Form Container */
+      .auth-form-container {
+        padding: 3rem;
+      }
+
+      .auth-form-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .auth-form-header .logo {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .auth-form-header h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .auth-form-header p {
+        color: var(--text-secondary);
+      }
+
+      /* Messages */
+      .message {
+        padding: 1rem;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+        display: none;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.95rem;
+      }
+
+      .message.show {
+        display: flex;
+      }
+
+      .message.error {
+        background: rgba(231, 76, 60, 0.1);
+        color: var(--error-color);
+        border: 1px solid rgba(231, 76, 60, 0.2);
+      }
+
+      .message.success {
+        background: rgba(0, 184, 148, 0.1);
+        color: var(--success-color);
+        border: 1px solid rgba(0, 184, 148, 0.2);
+      }
+
+      /* Form */
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text-primary);
+      }
+
+      .input-wrapper {
+        position: relative;
+      }
+
+      .input-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 1rem 1rem 1rem 3rem;
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        font-size: 1rem;
+        font-family: inherit;
+        color: var(--text-primary);
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+      }
+
+      .password-toggle {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        cursor: pointer;
+        padding: 0.25rem;
+        transition: color 0.3s;
+      }
+
+      .password-toggle:hover {
+        color: var(--primary-color);
+      }
+
+      /* Form Options */
+      .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .remember-me {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .remember-me input {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--primary-color);
+      }
+
+      .forgot-password {
+        color: var(--primary-color);
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-decoration: none;
+      }
+
+      .forgot-password:hover {
+        text-decoration: underline;
+      }
+
+      /* Buttons */
+      .btn-primary {
+        width: 100%;
+        padding: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--primary-dark)
+        );
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: inherit;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.35);
+      }
+
+      .btn-primary:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .btn-primary.loading {
+        color: transparent;
+        position: relative;
+      }
+
+      .btn-primary.loading::after {
+        content: "";
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border: 3px solid white;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Social Divider */
+      .divider {
+        display: flex;
+        align-items: center;
+        margin: 2rem 0;
+        color: var(--text-muted);
+      }
+
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border-color);
+      }
+
+      .divider span {
+        padding: 0 1rem;
+        font-size: 0.9rem;
+      }
+
+      /* Social Buttons */
+      .social-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .social-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        width: 100%;
+        padding: 0.875rem 1rem;
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        background: var(--bg-primary);
+        font-size: 1rem;
+        font-weight: 500;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: var(--text-primary);
+      }
+
+      .social-btn:hover {
+        background: var(--bg-secondary);
+      }
+
+      .social-btn.google:hover {
+        border-color: #4285f4;
+      }
+
+      .social-btn.facebook:hover {
+        border-color: #1877f2;
+      }
+
+      .social-btn img {
+        width: 22px;
+        height: 22px;
+      }
+
+      .social-btn .fa-facebook-f {
+        color: #1877f2;
+        font-size: 1.2rem;
+      }
+
+      /* Footer */
+      .auth-footer {
+        text-align: center;
+        margin-top: 2rem;
+        color: var(--text-secondary);
+      }
+
+      .auth-footer a {
+        color: var(--primary-color);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .auth-footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .auth-container {
+          grid-template-columns: 1fr;
+          max-width: 450px;
+        }
+
+        .auth-banner {
+          display: none;
+        }
+
+        .auth-form-container {
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav">
+        <a href="login.html" class="nav-logo">
+          <span>👟</span>
+          <span>Jutta<span class="accent">Pasal</span></span>
+        </a>
+        <button class="theme-toggle" id="theme-toggle" type="button">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Auth Section -->
+    <section class="auth-section">
+      <div class="auth-container">
+        <!-- Banner -->
+        <div class="auth-banner">
+          <h2>Welcome Back!</h2>
+          <p>
+            Login to access your account, track orders, and enjoy exclusive
+            deals on premium footwear from Nepal's favorite shoe store.
+          </p>
+          <div class="auth-banner-image">
+            <img
+              src="img/jordan.png"
+              alt="Shoe"
+              onerror="this.style.display='none'"
+            />
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="auth-form-container">
+          <div class="auth-form-header">
+            <div class="logo">
+              <span>👟</span>
+              <span>Jutta<span class="accent">Pasal</span></span>
+            </div>
+            <h1>Sign In</h1>
+            <p>Enter your credentials to continue</p>
+          </div>
+
+          <!-- Messages -->
+          <div class="message error" id="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            <span id="error-text"></span>
+          </div>
+          <div class="message success" id="success-message">
+            <i class="fas fa-check-circle"></i>
+            <span id="success-text"></span>
+          </div>
+
+          <!-- Login Form -->
+          <form id="login-form">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <div class="input-wrapper">
+                <i class="fas fa-envelope input-icon"></i>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter your email"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-wrapper">
+                <i class="fas fa-lock input-icon"></i>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Enter your password"
+                  required
+                  autocomplete="current-password"
+                />
+                <i class="fas fa-eye password-toggle" id="toggle-password"></i>
+              </div>
+            </div>
+
+            <div class="form-options">
+              <label class="remember-me">
+                <input type="checkbox" id="remember-me" />
+                <span>Remember me</span>
+              </label>
+              <a href="#" class="forgot-password" id="forgot-link"
+                >Forgot Password?</a
+              >
+            </div>
+
+            <button type="submit" class="btn-primary" id="login-btn">
+              <i class="fas fa-sign-in-alt"></i>
+              Sign In
+            </button>
+          </form>
+
+          <!-- Divider -->
+          <div class="divider">
+            <span>or continue with</span>
+          </div>
+
+          <!-- Social Buttons -->
+          <div class="social-buttons">
+            <button type="button" class="social-btn google" id="google-btn">
+              <img
+                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                alt="Google"
+              />
+              Continue with Google
+            </button>
+            <button type="button" class="social-btn facebook" id="facebook-btn">
+              <i class="fab fa-facebook-f"></i>
+              Continue with Facebook
+            </button>
+          </div>
+
+          <!-- Footer -->
+          <div class="auth-footer">
+            <p>Don't have an account? <a href="register.html">Sign Up</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // ===== CHECK IF ALREADY LOGGED IN =====
+      (function () {
+        const currentUser = localStorage.getItem("currentUser");
+        if (currentUser && currentUser !== "null") {
+          window.location.href = "index.html";
+        }
+      })();
+
+      // ===== THEME TOGGLE =====
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeIcon = document.getElementById("theme-icon");
+      const html = document.documentElement;
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem("theme") || "light";
+      html.setAttribute("data-theme", savedTheme);
+      themeIcon.className =
+        savedTheme === "light" ? "fas fa-moon" : "fas fa-sun";
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = html.getAttribute("data-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        html.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        themeIcon.className =
+          newTheme === "light" ? "fas fa-moon" : "fas fa-sun";
+      });
+
+      // ===== PASSWORD TOGGLE =====
+      const togglePassword = document.getElementById("toggle-password");
+      const passwordInput = document.getElementById("password");
+
+      togglePassword.addEventListener("click", () => {
+        const type = passwordInput.type === "password" ? "text" : "password";
+        passwordInput.type = type;
+        togglePassword.className =
+          type === "password"
+            ? "fas fa-eye password-toggle"
+            : "fas fa-eye-slash password-toggle";
+      });
+
+      // ===== MESSAGE FUNCTIONS =====
+      function showError(message) {
+        const errorEl = document.getElementById("error-message");
+        const successEl = document.getElementById("success-message");
+        document.getElementById("error-text").textContent = message;
+        errorEl.classList.add("show");
+        successEl.classList.remove("show");
+        setTimeout(() => errorEl.classList.remove("show"), 5000);
+      }
+
+      function showSuccess(message) {
+        const errorEl = document.getElementById("error-message");
+        const successEl = document.getElementById("success-message");
+        document.getElementById("success-text").textContent = message;
+        successEl.classList.add("show");
+        errorEl.classList.remove("show");
+      }
+
+      // ===== LOGIN FORM =====
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value;
+          const rememberMe = document.getElementById("remember-me").checked;
+          const loginBtn = document.getElementById("login-btn");
+
+          if (!email || !password) {
+            showError("Please fill in all fields");
+            return;
+          }
+
+          // Show loading
+          loginBtn.classList.add("loading");
+          loginBtn.disabled = true;
+
+          // Simulate login (1.5s delay)
+          setTimeout(() => {
+            // Get users
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const user = users.find(
+              (u) => u.email === email && u.password === password
+            );
+
+            if (user) {
+              // Success
+              user.loginTime = Date.now();
+              localStorage.setItem("currentUser", JSON.stringify(user));
+
+              showSuccess("Login successful! Redirecting...");
+
+              // Get redirect URL
+              const redirectUrl =
+                sessionStorage.getItem("redirectAfterLogin") || "index.html";
+              sessionStorage.removeItem("redirectAfterLogin");
+
+              setTimeout(() => {
+                window.location.href = redirectUrl;
+              }, 1000);
+            } else {
+              // Failed
+              const emailExists = users.find((u) => u.email === email);
+              if (emailExists) {
+                showError("Incorrect password. Please try again.");
+              } else {
+                showError("No account found with this email. Please register.");
+              }
+              loginBtn.classList.remove("loading");
+              loginBtn.disabled = false;
+            }
+          }, 1500);
+        });
+
+      // ===== GOOGLE LOGIN =====
+      document
+        .getElementById("google-btn")
+        .addEventListener("click", function () {
+          this.classList.add("loading");
+          this.disabled = true;
+          this.innerHTML =
+            '<span style="color: transparent;">Loading...</span>';
+
+          setTimeout(() => {
+            const user = {
+              id: "google_" + Date.now(),
+              email: "google.user@gmail.com",
+              firstName: "Google",
+              lastName: "User",
+              picture:
+                "https://ui-avatars.com/api/?name=Google+User&background=4285f4&color=fff",
+              provider: "google",
+              loginTime: Date.now(),
+              createdAt: new Date().toISOString(),
+            };
+
+            // Save user
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            if (!users.find((u) => u.email === user.email)) {
+              users.push(user);
+              localStorage.setItem("users", JSON.stringify(users));
+            }
+            localStorage.setItem("currentUser", JSON.stringify(user));
+
+            showSuccess("Google login successful! Redirecting...");
+
+            const redirectUrl =
+              sessionStorage.getItem("redirectAfterLogin") || "index.html";
+            sessionStorage.removeItem("redirectAfterLogin");
+
+            setTimeout(() => {
+              window.location.href = redirectUrl;
+            }, 1000);
+          }, 2000);
+        });
+
+      // ===== FACEBOOK LOGIN =====
+      document
+        .getElementById("facebook-btn")
+        .addEventListener("click", function () {
+          this.classList.add("loading");
+          this.disabled = true;
+          this.innerHTML =
+            '<span style="color: transparent;">Loading...</span>';
+
+          setTimeout(() => {
+            const user = {
+              id: "facebook_" + Date.now(),
+              email: "facebook.user@facebook.com",
+              firstName: "Facebook",
+              lastName: "User",
+              picture:
+                "https://ui-avatars.com/api/?name=Facebook+User&background=1877f2&color=fff",
+              provider: "facebook",
+              loginTime: Date.now(),
+              createdAt: new Date().toISOString(),
+            };
+
+            // Save user
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            if (!users.find((u) => u.email === user.email)) {
+              users.push(user);
+              localStorage.setItem("users", JSON.stringify(users));
+            }
+            localStorage.setItem("currentUser", JSON.stringify(user));
+
+            showSuccess("Facebook login successful! Redirecting...");
+
+            const redirectUrl =
+              sessionStorage.getItem("redirectAfterLogin") || "index.html";
+            sessionStorage.removeItem("redirectAfterLogin");
+
+            setTimeout(() => {
+              window.location.href = redirectUrl;
+            }, 1000);
+          }, 2000);
+        });
+
+      // ===== FORGOT PASSWORD =====
+      document
+        .getElementById("forgot-link")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          const email = prompt("Enter your email address:");
+          if (email) {
+            alert(
+              "Password reset link sent to: " +
+                email +
+                "\n\n(This is a demo - no email actually sent)"
+            );
+          }
+        });
+    </script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile - Jutta Pasal</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon">👟</span>
+          <span class="logo-text">Jutta<span class="accent">Pasal</span></span>
+        </a>
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link"
+                ><i class="fas fa-shoe-prints"></i> Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link"
+                ><i class="fas fa-info-circle"></i> About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+          </ul>
+          <div class="nav-close" id="nav-close">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <div class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-moon" id="theme-icon"></i>
+          </div>
+          <a href="cart.html" class="nav-action-btn"
+            ><i class="fas fa-shopping-cart"></i
+            ><span class="badge" id="cart-count">0</span></a
+          >
+          <div class="nav-toggle" id="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="profile-section">
+        <div class="container">
+          <div class="profile-layout">
+            <!-- Sidebar -->
+            <aside class="profile-sidebar">
+              <div class="profile-user">
+                <div class="profile-avatar" id="profile-avatar">U</div>
+                <h2 id="profile-name">User Name</h2>
+                <p id="profile-email">user@email.com</p>
+              </div>
+              <ul class="profile-nav">
+                <li>
+                  <a href="#dashboard" class="active" data-tab="dashboard"
+                    ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+                  >
+                </li>
+                <li>
+                  <a href="#orders" data-tab="orders"
+                    ><i class="fas fa-shopping-bag"></i> My Orders</a
+                  >
+                </li>
+                <li>
+                  <a href="#wishlist" data-tab="wishlist"
+                    ><i class="fas fa-heart"></i> Wishlist</a
+                  >
+                </li>
+                <li>
+                  <a href="#addresses" data-tab="addresses"
+                    ><i class="fas fa-map-marker-alt"></i> Addresses</a
+                  >
+                </li>
+                <li>
+                  <a href="#settings" data-tab="settings"
+                    ><i class="fas fa-cog"></i> Account Settings</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="logout" id="logout-btn"
+                    ><i class="fas fa-sign-out-alt"></i> Logout</a
+                  >
+                </li>
+              </ul>
+            </aside>
+
+            <!-- Content -->
+            <div class="profile-content">
+              <!-- Dashboard Tab -->
+              <div class="profile-tab active" id="dashboard">
+                <h1>Dashboard</h1>
+                <div
+                  class="dashboard-stats"
+                  style="
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 1.5rem;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <div
+                    class="stat-card"
+                    style="
+                      background: var(--bg-secondary);
+                      padding: 1.5rem;
+                      border-radius: 10px;
+                      text-align: center;
+                    "
+                  >
+                    <i
+                      class="fas fa-shopping-bag"
+                      style="
+                        font-size: 2rem;
+                        color: var(--primary-color);
+                        margin-bottom: 0.5rem;
+                      "
+                    ></i>
+                    <h3 id="total-orders">0</h3>
+                    <p style="color: var(--text-secondary)">Total Orders</p>
+                  </div>
+                  <div
+                    class="stat-card"
+                    style="
+                      background: var(--bg-secondary);
+                      padding: 1.5rem;
+                      border-radius: 10px;
+                      text-align: center;
+                    "
+                  >
+                    <i
+                      class="fas fa-heart"
+                      style="
+                        font-size: 2rem;
+                        color: #e74c3c;
+                        margin-bottom: 0.5rem;
+                      "
+                    ></i>
+                    <h3 id="wishlist-items">0</h3>
+                    <p style="color: var(--text-secondary)">Wishlist Items</p>
+                  </div>
+                  <div
+                    class="stat-card"
+                    style="
+                      background: var(--bg-secondary);
+                      padding: 1.5rem;
+                      border-radius: 10px;
+                      text-align: center;
+                    "
+                  >
+                    <i
+                      class="fas fa-wallet"
+                      style="
+                        font-size: 2rem;
+                        color: #27ae60;
+                        margin-bottom: 0.5rem;
+                      "
+                    ></i>
+                    <h3 id="total-spent">Rs. 0</h3>
+                    <p style="color: var(--text-secondary)">Total Spent</p>
+                  </div>
+                </div>
+                <h2 style="margin-bottom: 1rem">Recent Orders</h2>
+                <div id="recent-orders">
+                  <p
+                    style="
+                      color: var(--text-secondary);
+                      text-align: center;
+                      padding: 2rem;
+                    "
+                  >
+                    No orders yet.
+                    <a href="products.html" style="color: var(--primary-color)"
+                      >Start shopping!</a
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <!-- Orders Tab -->
+              <div class="profile-tab" id="orders" style="display: none">
+                <h1>My Orders</h1>
+                <div id="orders-list">
+                  <table class="orders-table" style="width: 100%">
+                    <thead>
+                      <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="orders-tbody">
+                      <tr>
+                        <td
+                          colspan="6"
+                          style="
+                            text-align: center;
+                            padding: 2rem;
+                            color: var(--text-secondary);
+                          "
+                        >
+                          No orders found
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Wishlist Tab -->
+              <div class="profile-tab" id="wishlist" style="display: none">
+                <h1>My Wishlist</h1>
+                <div class="products-grid" id="wishlist-grid">
+                  <p
+                    style="
+                      color: var(--text-secondary);
+                      text-align: center;
+                      padding: 2rem;
+                      grid-column: 1/-1;
+                    "
+                  >
+                    Your wishlist is empty.
+                    <a href="products.html" style="color: var(--primary-color)"
+                      >Browse products!</a
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <!-- Addresses Tab -->
+              <div class="profile-tab" id="addresses" style="display: none">
+                <h1>My Addresses</h1>
+                <div
+                  id="addresses-list"
+                  style="
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                    gap: 1.5rem;
+                  "
+                >
+                  <div
+                    class="address-card"
+                    style="
+                      background: var(--bg-secondary);
+                      padding: 1.5rem;
+                      border-radius: 10px;
+                      border: 2px dashed var(--border-color);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      min-height: 150px;
+                      cursor: pointer;
+                    "
+                    id="add-address-btn"
+                  >
+                    <div style="text-align: center">
+                      <i
+                        class="fas fa-plus"
+                        style="
+                          font-size: 2rem;
+                          color: var(--text-muted);
+                          margin-bottom: 0.5rem;
+                        "
+                      ></i>
+                      <p style="color: var(--text-secondary)">
+                        Add New Address
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Settings Tab -->
+              <div class="profile-tab" id="settings" style="display: none">
+                <h1>Account Settings</h1>
+                <form id="settings-form" style="max-width: 600px">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>First Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="settings-first-name"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>Last Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="settings-last-name"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Email Address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="settings-email"
+                      readonly
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Phone Number</label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="settings-phone"
+                    />
+                  </div>
+                  <h3 style="margin: 2rem 0 1rem">Change Password</h3>
+                  <div class="form-group">
+                    <label>Current Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="current-password"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>New Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="new-password"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Confirm New Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="confirm-new-password"
+                    />
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Save Changes
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast-container" id="toast-container"></div>
+    <button class="back-to-top" id="back-to-top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check if user is logged in
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (!currentUser) {
+          window.location.href = "login.html";
+          return;
+        }
+
+        // Populate user info
+        document.getElementById("profile-avatar").textContent =
+          currentUser.firstName.charAt(0).toUpperCase();
+        document.getElementById(
+          "profile-name"
+        ).textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+        document.getElementById("profile-email").textContent =
+          currentUser.email;
+
+        // Settings form
+        document.getElementById("settings-first-name").value =
+          currentUser.firstName;
+        document.getElementById("settings-last-name").value =
+          currentUser.lastName;
+        document.getElementById("settings-email").value = currentUser.email;
+        document.getElementById("settings-phone").value =
+          currentUser.phone || "";
+
+        // Tab navigation
+        document
+          .querySelectorAll(".profile-nav a[data-tab]")
+          .forEach((link) => {
+            link.addEventListener("click", function (e) {
+              e.preventDefault();
+              const tabId = this.getAttribute("data-tab");
+
+              // Update nav
+              document
+                .querySelectorAll(".profile-nav a")
+                .forEach((a) => a.classList.remove("active"));
+              this.classList.add("active");
+
+              // Update tabs
+              document
+                .querySelectorAll(".profile-tab")
+                .forEach((tab) => (tab.style.display = "none"));
+              document.getElementById(tabId).style.display = "block";
+            });
+          });
+
+        // Logout
+        document
+          .getElementById("logout-btn")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            localStorage.removeItem("currentUser");
+            showToast("Success", "Logged out successfully", "success");
+            setTimeout(() => (window.location.href = "index.html"), 1000);
+          });
+
+        // Settings form
+        document
+          .getElementById("settings-form")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const userIndex = users.findIndex(
+              (u) => u.email === currentUser.email
+            );
+
+            if (userIndex !== -1) {
+              users[userIndex].firstName = document.getElementById(
+                "settings-first-name"
+              ).value;
+              users[userIndex].lastName =
+                document.getElementById("settings-last-name").value;
+              users[userIndex].phone =
+                document.getElementById("settings-phone").value;
+
+              // Update password if provided
+              const currentPass =
+                document.getElementById("current-password").value;
+              const newPass = document.getElementById("new-password").value;
+              const confirmPass = document.getElementById(
+                "confirm-new-password"
+              ).value;
+
+              if (currentPass && newPass) {
+                if (currentPass !== users[userIndex].password) {
+                  showToast("Error", "Current password is incorrect", "error");
+                  return;
+                }
+                if (newPass !== confirmPass) {
+                  showToast("Error", "New passwords do not match", "error");
+                  return;
+                }
+                users[userIndex].password = newPass;
+              }
+
+              localStorage.setItem("users", JSON.stringify(users));
+              localStorage.setItem(
+                "currentUser",
+                JSON.stringify(users[userIndex])
+              );
+
+              showToast("Success", "Settings saved successfully", "success");
+            }
+          });
+
+        // Load wishlist
+        const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        document.getElementById("wishlist-items").textContent = wishlist.length;
+      });
+    </script>
+  </body>
+</html>

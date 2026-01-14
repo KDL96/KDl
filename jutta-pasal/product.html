@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details - Jutta Pasal</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon">👟</span>
+          <span class="logo-text">Jutta<span class="accent">Pasal</span></span>
+        </a>
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link"
+                ><i class="fas fa-shoe-prints"></i> Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link"
+                ><i class="fas fa-info-circle"></i> About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+          </ul>
+          <div class="nav-close" id="nav-close">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <div class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-moon" id="theme-icon"></i>
+          </div>
+          <a href="wishlist.html" class="nav-action-btn"
+            ><i class="fas fa-heart"></i
+            ><span class="badge" id="wishlist-count">0</span></a
+          >
+          <a href="cart.html" class="nav-action-btn"
+            ><i class="fas fa-shopping-cart"></i
+            ><span class="badge" id="cart-count">0</span></a
+          >
+          <div class="user-dropdown" id="user-dropdown">
+            <button class="nav-action-btn" id="user-btn">
+              <i class="fas fa-user"></i>
+            </button>
+            <div class="user-menu" id="user-menu">
+              <div class="user-menu-header" id="user-menu-header">
+                <p>Welcome, Guest</p>
+              </div>
+              <ul class="user-menu-list" id="user-menu-list">
+                <li>
+                  <a href="login.html"
+                    ><i class="fas fa-sign-in-alt"></i> Login</a
+                  >
+                </li>
+                <li>
+                  <a href="register.html"
+                    ><i class="fas fa-user-plus"></i> Register</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-toggle" id="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- Product Detail Section -->
+      <section class="product-detail">
+        <div class="container">
+          <!-- Breadcrumb -->
+          <div class="breadcrumb" style="margin-bottom: 2rem">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="products.html">Products</a>
+            <i class="fas fa-chevron-right"></i>
+            <span id="product-breadcrumb">Product</span>
+          </div>
+
+          <div class="product-detail-grid" id="product-detail">
+            <!-- Content loaded dynamically -->
+          </div>
+
+          <!-- Product Tabs -->
+          <div class="product-tabs" id="product-tabs">
+            <div class="tabs-nav">
+              <button class="tab-nav-btn active" data-tab="description">
+                Description
+              </button>
+              <button class="tab-nav-btn" data-tab="specifications">
+                Specifications
+              </button>
+              <button class="tab-nav-btn" data-tab="reviews">Reviews</button>
+            </div>
+            <div class="tab-content">
+              <div class="tab-pane active" id="description">
+                <p id="product-description-text">
+                  Premium quality footwear designed for comfort and style. Made
+                  with high-quality materials that ensure durability and
+                  long-lasting wear.
+                </p>
+                <ul style="margin-top: 1rem; padding-left: 1.5rem">
+                  <li>Premium quality materials</li>
+                  <li>Comfortable cushioning</li>
+                  <li>Durable construction</li>
+                  <li>Stylish design</li>
+                  <li>Perfect for everyday wear</li>
+                </ul>
+              </div>
+              <div class="tab-pane" id="specifications">
+                <table class="specifications-table">
+                  <tr>
+                    <td>Brand</td>
+                    <td id="spec-brand">Nike</td>
+                  </tr>
+                  <tr>
+                    <td>Category</td>
+                    <td id="spec-category">Sneakers</td>
+                  </tr>
+                  <tr>
+                    <td>Material</td>
+                    <td>Synthetic Leather, Mesh</td>
+                  </tr>
+                  <tr>
+                    <td>Sole</td>
+                    <td>Rubber</td>
+                  </tr>
+                  <tr>
+                    <td>Closure</td>
+                    <td>Lace-up</td>
+                  </tr>
+                  <tr>
+                    <td>Available Sizes</td>
+                    <td id="spec-sizes">38-45</td>
+                  </tr>
+                  <tr>
+                    <td>Origin</td>
+                    <td>Imported</td>
+                  </tr>
+                  <tr>
+                    <td>Warranty</td>
+                    <td>6 Months</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="tab-pane" id="reviews">
+                <div class="reviews-summary">
+                  <div class="rating-average">
+                    <span class="rating-number" id="avg-rating">4.5</span>
+                    <div class="rating-stars">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="rating-count" id="rating-count"
+                      >Based on 0 reviews</span
+                    >
+                  </div>
+                  <div class="rating-bars">
+                    <div class="rating-bar">
+                      <span>5</span>
+                      <div class="bar">
+                        <div class="bar-fill" style="width: 70%"></div>
+                      </div>
+                      <span>70%</span>
+                    </div>
+                    <div class="rating-bar">
+                      <span>4</span>
+                      <div class="bar">
+                        <div class="bar-fill" style="width: 20%"></div>
+                      </div>
+                      <span>20%</span>
+                    </div>
+                    <div class="rating-bar">
+                      <span>3</span>
+                      <div class="bar">
+                        <div class="bar-fill" style="width: 7%"></div>
+                      </div>
+                      <span>7%</span>
+                    </div>
+                    <div class="rating-bar">
+                      <span>2</span>
+                      <div class="bar">
+                        <div class="bar-fill" style="width: 2%"></div>
+                      </div>
+                      <span>2%</span>
+                    </div>
+                    <div class="rating-bar">
+                      <span>1</span>
+                      <div class="bar">
+                        <div class="bar-fill" style="width: 1%"></div>
+                      </div>
+                      <span>1%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Write Review Form -->
+                <div class="review-form">
+                  <h3>Write a Review</h3>
+                  <form id="review-form">
+                    <div class="form-group">
+                      <label>Your Rating</label>
+                      <div class="star-rating" id="star-rating">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Your Review</label>
+                      <textarea
+                        class="form-control"
+                        id="review-text"
+                        rows="4"
+                        placeholder="Share your experience with this product..."
+                        required
+                      ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fas fa-paper-plane"></i> Submit Review
+                    </button>
+                  </form>
+                </div>
+
+                <!-- Reviews List -->
+                <div class="review-list" id="review-list">
+                  <div class="review-item">
+                    <div class="review-header">
+                      <div class="reviewer-info">
+                        <div class="reviewer-avatar">RS</div>
+                        <div>
+                          <span class="reviewer-name">Rajesh Sharma</span>
+                          <span class="review-date">2 weeks ago</span>
+                        </div>
+                      </div>
+                      <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                    </div>
+                    <p class="review-content">
+                      Excellent quality! The shoes are exactly as described.
+                      Very comfortable for daily use. Highly recommend to
+                      everyone.
+                    </p>
+                  </div>
+                  <div class="review-item">
+                    <div class="review-header">
+                      <div class="reviewer-info">
+                        <div class="reviewer-avatar">SP</div>
+                        <div>
+                          <span class="reviewer-name">Sita Poudel</span>
+                          <span class="review-date">1 month ago</span>
+                        </div>
+                      </div>
+                      <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                      </div>
+                    </div>
+                    <p class="review-content">
+                      Great product! Fast delivery and the quality is amazing.
+                      Will definitely buy again from Jutta Pasal.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Products -->
+      <section class="section" style="background: var(--bg-secondary)">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle">You May Also Like</span>
+            <h2 class="section-title">Related Products</h2>
+          </div>
+          <div class="products-grid" id="related-products">
+            <!-- Products loaded dynamically -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-col">
+              <a href="index.html" class="footer-logo">
+                <span class="logo-icon">👟</span>
+                <span class="logo-text"
+                  >Jutta<span class="accent">Pasal</span></span
+                >
+              </a>
+              <p class="footer-description">
+                Your one-stop destination for premium footwear in Nepal.
+              </p>
+            </div>
+            <div class="footer-col">
+              <h3>Quick Links</h3>
+              <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Contact Info</h3>
+              <ul class="footer-contact">
+                <li>
+                  <i class="fas fa-map-marker-alt"></i
+                  ><span>Kathmandu, Nepal</span>
+                </li>
+                <li>
+                  <i class="fas fa-phone"></i><span>+977 9800000000</span>
+                </li>
+                <li>
+                  <i class="fas fa-envelope"></i
+                  ><span>info@juttapasal.com</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2024 Jutta Pasal. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get("id"));
+
+        if (!productId) {
+          window.location.href = "products.html";
+          return;
+        }
+
+        const product = getProducts().find((p) => p.id === productId);
+
+        if (!product) {
+          window.location.href = "products.html";
+          return;
+        }
+
+        // Update page title
+        document.title = `${product.name} - Jutta Pasal`;
+        document.getElementById("product-breadcrumb").textContent =
+          product.name;
+
+        // Render product details
+        renderProductDetail(product);
+        renderRelatedProducts(product);
+        initTabs();
+        initReviewForm();
+        initStarRating();
+      });
+
+      function renderProductDetail(product) {
+        const container = document.getElementById("product-detail");
+        const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        const isWishlisted = wishlist.includes(product.id);
+
+        container.innerHTML = `
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img src="${product.image}" alt="${
+          product.name
+        }" id="main-product-image">
+                        <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
+                    </div>
+                    <div class="thumbnail-list">
+                        <div class="thumbnail active" data-image="${
+                          product.image
+                        }">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="thumbnail" data-image="${product.image}">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="thumbnail" data-image="${product.image}">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-detail-info">
+                    <span class="product-category">${product.brand} | ${
+          product.category
+        }</span>
+                    <h1>${product.name}</h1>
+                    
+                    <div class="product-meta">
+                        <div class="product-rating">
+                            ${generateStars(product.rating)}
+                            <span>(${product.reviews} reviews)</span>
+                        </div>
+                        <span class="product-sku">SKU: JP${product.id}${
+          product.id
+        }${product.id}</span>
+                    </div>
+
+                    <div class="product-detail-price">
+                        <span class="current-price">Rs. ${product.price.toLocaleString()}</span>
+                        ${
+                          product.originalPrice
+                            ? `
+                            <span class="original-price">Rs. ${product.originalPrice.toLocaleString()}</span>
+                            <span class="discount">${
+                              product.discount
+                            }% OFF</span>
+                        `
+                            : ""
+                        }
+                    </div>
+
+                    <p class="product-description">
+                        ${
+                          product.description ||
+                          "Premium quality footwear designed for comfort and style. Made with high-quality materials that ensure durability and long-lasting wear."
+                        }
+                    </p>
+
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label>Size:</label>
+                            <div class="size-options">
+                                ${product.sizes
+                                  .map(
+                                    (size) => `
+                                    <button class="size-btn" data-size="${size}">${size}</button>
+                                `
+                                  )
+                                  .join("")}
+                            </div>
+                        </div>
+                        <div class="option-group">
+                            <label>Color:</label>
+                            <div class="color-options">
+                                ${product.colors
+                                  .map(
+                                    (color) => `
+                                    <button class="color-btn" data-color="${color}" style="background: ${color};"></button>
+                                `
+                                  )
+                                  .join("")}
+                            </div>
+                        </div>
+                        <div class="option-group">
+                            <label>Quantity:</label>
+                            <div class="quantity-selector">
+                                <button class="quantity-btn minus" id="qty-minus">-</button>
+                                <input type="number" class="quantity-input" id="qty-input" value="1" min="1" max="10">
+                                <button class="quantity-btn plus" id="qty-plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-actions-detail">
+                        <button class="btn btn-primary" id="add-to-cart-btn">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-outline ${
+                          isWishlisted ? "active" : ""
+                        }" id="wishlist-btn" style="${
+          isWishlisted
+            ? "background: #e74c3c; color: white; border-color: #e74c3c;"
+            : ""
+        }">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="product-features">
+                        <div class="feature-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Free Shipping over Rs. 5000</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-undo"></i>
+                            <span>30 Days Return</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>100% Authentic</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+        // Update specs
+        document.getElementById("spec-brand").textContent = product.brand;
+        document.getElementById("spec-category").textContent = product.category;
+        document.getElementById("spec-sizes").textContent =
+          product.sizes.join(", ");
+        document.getElementById("avg-rating").textContent = product.rating;
+        document.getElementById(
+          "rating-count"
+        ).textContent = `Based on ${product.reviews} reviews`;
+
+        // Event Listeners
+        // Size selection
+        container.querySelectorAll(".size-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            container
+              .querySelectorAll(".size-btn")
+              .forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+
+        // Color selection
+        container.querySelectorAll(".color-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            container
+              .querySelectorAll(".color-btn")
+              .forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+
+        // Quantity
+        document
+          .getElementById("qty-minus")
+          .addEventListener("click", function () {
+            const input = document.getElementById("qty-input");
+            if (input.value > 1) input.value--;
+          });
+
+        document
+          .getElementById("qty-plus")
+          .addEventListener("click", function () {
+            const input = document.getElementById("qty-input");
+            if (input.value < 10) input.value++;
+          });
+
+        // Add to cart
+        document
+          .getElementById("add-to-cart-btn")
+          .addEventListener("click", function () {
+            const selectedSize = container.querySelector(".size-btn.active");
+            if (!selectedSize) {
+              showToast("Error", "Please select a size", "error");
+              return;
+            }
+            const quantity = parseInt(
+              document.getElementById("qty-input").value
+            );
+            addToCart(product.id, selectedSize.dataset.size, quantity);
+          });
+
+        // Wishlist
+        document
+          .getElementById("wishlist-btn")
+          .addEventListener("click", function () {
+            toggleWishlist(product.id);
+            this.classList.toggle("active");
+            if (this.classList.contains("active")) {
+              this.style.background = "#e74c3c";
+              this.style.color = "white";
+              this.style.borderColor = "#e74c3c";
+            } else {
+              this.style.background = "";
+              this.style.color = "";
+              this.style.borderColor = "";
+            }
+          });
+
+        // Thumbnail gallery
+        container.querySelectorAll(".thumbnail").forEach((thumb) => {
+          thumb.addEventListener("click", function () {
+            container
+              .querySelectorAll(".thumbnail")
+              .forEach((t) => t.classList.remove("active"));
+            this.classList.add("active");
+            document.getElementById("main-product-image").src =
+              this.dataset.image;
+          });
+        });
+      }
+
+      function generateStars(rating) {
+        let stars = "";
+        for (let i = 1; i <= 5; i++) {
+          if (i <= rating) {
+            stars += '<i class="fas fa-star"></i>';
+          } else if (i - 0.5 <= rating) {
+            stars += '<i class="fas fa-star-half-alt"></i>';
+          } else {
+            stars += '<i class="far fa-star"></i>';
+          }
+        }
+        return stars;
+      }
+
+      function renderRelatedProducts(currentProduct) {
+        const products = getProducts()
+          .filter(
+            (p) =>
+              p.category === currentProduct.category &&
+              p.id !== currentProduct.id
+          )
+          .slice(0, 4);
+
+        const container = document.getElementById("related-products");
+        if (container && products.length > 0) {
+          renderProducts(container, products);
+        }
+      }
+
+      function initTabs() {
+        document.querySelectorAll(".tab-nav-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const tabId = this.dataset.tab;
+
+            // Update nav buttons
+            document
+              .querySelectorAll(".tab-nav-btn")
+              .forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            // Update tab panes
+            document
+              .querySelectorAll(".tab-pane")
+              .forEach((pane) => pane.classList.remove("active"));
+            document.getElementById(tabId).classList.add("active");
+          });
+        });
+      }
+
+      function initStarRating() {
+        const starRating = document.getElementById("star-rating");
+        let selectedRating = 0;
+
+        if (starRating) {
+          starRating.querySelectorAll("i").forEach((star) => {
+            star.addEventListener("mouseenter", function () {
+              const rating = parseInt(this.dataset.rating);
+              highlightStars(rating);
+            });
+
+            star.addEventListener("mouseleave", function () {
+              highlightStars(selectedRating);
+            });
+
+            star.addEventListener("click", function () {
+              selectedRating = parseInt(this.dataset.rating);
+              highlightStars(selectedRating);
+            });
+          });
+        }
+
+        function highlightStars(rating) {
+          starRating.querySelectorAll("i").forEach((star, index) => {
+            if (index < rating) {
+              star.className = "fas fa-star active";
+            } else {
+              star.className = "far fa-star";
+            }
+          });
+        }
+      }
+
+      function initReviewForm() {
+        const form = document.getElementById("review-form");
+        if (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const reviewText = document.getElementById("review-text").value;
+            const selectedStars = document.querySelectorAll(
+              "#star-rating i.active"
+            ).length;
+
+            if (selectedStars === 0) {
+              showToast("Error", "Please select a rating", "error");
+              return;
+            }
+
+            // Add review to list
+            const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            const reviewerName = currentUser
+              ? `${currentUser.firstName} ${currentUser.lastName}`
+              : "Guest User";
+            const initials = reviewerName
+              .split(" ")
+              .map((n) => n[0])
+              .join("")
+              .toUpperCase();
+
+            const reviewList = document.getElementById("review-list");
+            const newReview = document.createElement("div");
+            newReview.className = "review-item";
+            newReview.innerHTML = `
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">${initials}</div>
+                                <div>
+                                    <span class="reviewer-name">${reviewerName}</span>
+                                    <span class="review-date">Just now</span>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                ${generateStars(selectedStars)}
+                            </div>
+                        </div>
+                        <p class="review-content">${reviewText}</p>
+                    `;
+
+            reviewList.insertBefore(newReview, reviewList.firstChild);
+
+            // Reset form
+            form.reset();
+            document.querySelectorAll("#star-rating i").forEach((star) => {
+              star.className = "far fa-star";
+            });
+
+            showToast("Success", "Thank you for your review!", "success");
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
